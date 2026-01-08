@@ -1,0 +1,207 @@
+/* =========================
+   Base Reset
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #222;
+  background-color: #ffffff;
+}
+
+a {
+  color: #0b5ed7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+/* =========================
+   Layout Container
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* =========================
+   Header
+========================= */
+.site-header {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.logo a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.main-nav a {
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.main-nav a:hover {
+  color: #0b5ed7;
+}
+
+/* =========================
+   Main Article Content
+========================= */
+.article {
+  padding: 32px 0;
+}
+
+.article h1 {
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.article h2 {
+  font-size: 26px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.article h3 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.article p {
+  margin-bottom: 16px;
+}
+
+.article ul li {
+  margin-bottom: 8px;
+}
+
+/* =========================
+   Affiliate Box
+========================= */
+.affiliate-box {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
+  font-size: 15px;
+  color: #475569;
+}
+
+/* =========================
+   Footer
+========================= */
+.site-footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+  padding: 24px 0;
+  background: #fafafa;
+}
+
+.site-footer p {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.footer-links a {
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+@media (max-width: 768px) {
+
+  .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+
+  .main-nav {
+    margin-top: 8px;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
+  .article h1 {
+    font-size: 26px;
+  }
+
+  .article h2 {
+    font-size: 22px;
+  }
+
+  .article h3 {
+    font-size: 18px;
+  }
+}
+/* =========================
+   Tool Grid (Calculators Page)
+========================= */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tool-card {
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.tool-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.tool-card p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.tool-link {
+  font-weight: 600;
+  color: #0b5ed7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+}
