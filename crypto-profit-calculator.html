@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Profit Calculator | Calculate Crypto Gains & ROI Online</title>
+<meta name="description" content="Free Crypto Profit Calculator and Crypto Investment Calculator to calculate gains, ROI, break-even price, and future investment value.">
+<meta name="keywords" content="crypto profit calculator, crypto investment calculator, crypto ROI, break-even crypto, crypto future value">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Crypto Profit & Investment Calculator",
+  "description": "Free Crypto Profit Calculator and Crypto Investment Calculator to calculate gains, ROI, break-even price, and future investment value.",
+  "url": "https://cryptocalculators.net/crypto-profit-calculator",
+  "mainEntity": [
+    {
+      "@type": "WebApplication",
+      "name": "Crypto Profit Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "FinanceApplication",
+      "url": "https://cryptocalculators.net/crypto-profit-calculator"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Crypto Investment Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "FinanceApplication",
+      "url": "https://cryptocalculators.net/crypto-investment-calculator"
+    }
+  ]
+}
+</script>
+
+<style>
+body {background:#f4f6fa; font-family:Arial, sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:600px;margin:30px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.result-box {background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin-bottom:15px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.result-box span {font-size:18px;font-weight:600;color:#0b3d91;}
+.inline-group .form-check {margin-right:20px;}
+.instructions {margin-top:30px;background:#f8f9fb;padding:15px;border-radius:8px;font-size:14px;color:#555;line-height:1.6;}
+.instructions h5 {margin-bottom:10px;color:#0b3d91;}
+.instructions ul {margin-bottom:15px;}
+.instructions li {margin-bottom:8px;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.banner h1 {font-size:28px;font-weight:700;}
+.banner p {font-size:16px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li><a class="dropdown-item" href="./math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="./financial-calculators.html">Financial Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Crypto Profit & Investment Calculator</h1>
+    <p>Our crypto profit calculator will help you calculate your total potential profit or loss on a crypto trade or investment, including the trading fee, deposit fee, withdrawal fee, and ROI. The crypto investment calculator can be used with or without fees for a simple calculation.</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Calculator Box -->
+  <div class="calc-box">
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-3" id="calcTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="profit-tab" data-bs-toggle="tab" data-bs-target="#profit" type="button" role="tab">Crypto Profit Calculator</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="investment-tab" data-bs-toggle="tab" data-bs-target="#investment" type="button" role="tab">Crypto Investment Calculator</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+
+      <!-- Profit Calculator -->
+      <div class="tab-pane fade show active" id="profit" role="tabpanel">
+        <div class="mb-3">
+          <label class="form-label">Investment ($)</label>
+          <input type="number" class="form-control" placeholder="Enter your investment amount" id="profitInvestment">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Buy Price (USD)</label>
+          <input type="number" class="form-control" placeholder="Enter buy price" id="profitBuy">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sell Price (USD)</label>
+          <input type="number" class="form-control" placeholder="Enter sell price" id="profitSell">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Investment Fee</label>
+          <div class="d-flex align-items-center inline-group">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="invFeeType" value="percentage" checked>
+              <label class="form-check-label">Percentage (%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="invFeeType" value="fixed">
+              <label class="form-check-label">Fixed ($)</label>
+            </div>
+            <input type="number" class="form-control w-25" placeholder="Fee value" id="profitInvFee">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Withdrawal Fee</label>
+          <div class="d-flex align-items-center inline-group">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="withFeeType" value="percentage" checked>
+              <label class="form-check-label">Percentage (%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="withFeeType" value="fixed">
+              <label class="form-check-label">Fixed ($)</label>
+            </div>
+            <input type="number" class="form-control w-25" placeholder="Fee value" id="profitWithFee">
+          </div>
+        </div>
+        <button class="btn btn-primary w-100 mb-3" type="button" onclick="calculateProfit()">Calculate Profit</button>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Total Profit/Loss</h6><span id="totalProfit">$0</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>ROI</h6><span id="roi">0%</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Total Exit Amount</h6><span id="exitAmount">$0</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Break-Even Price</h6><span id="breakEven">$0</span>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">Select the fee type for each fee field: Percentage (%) or Fixed ($).</small>
+      </div>
+
+      <!-- Investment Calculator -->
+      <div class="tab-pane fade" id="investment" role="tabpanel">
+        <div class="mb-3">
+          <label class="form-label">Initial Investment ($)</label>
+          <input type="number" class="form-control" id="invInitial" placeholder="Enter initial investment">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Additional Contribution ($)</label>
+          <input type="number" class="form-control" id="invAdd" placeholder="Enter additional contribution">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contribution Frequency</label>
+          <select class="form-select" id="invFreq">
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Expected Annual Return (%)</label>
+          <input type="number" class="form-control" id="invReturn" placeholder="Enter expected return">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Investment Duration (Years)</label>
+          <input type="number" class="form-control" id="invYears" placeholder="Enter investment duration">
+        </div>
+        <button class="btn btn-primary w-100 mb-3" type="button" onclick="calculateInvestment()">Calculate Investment</button>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Future Investment Value</h6><span id="futureValue">$0</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Total Contributions</h6><span id="totalContrib">$0</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Total Profit</h6><span id="totalInterest">$0</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="result-box">
+              <h6>Effective Annual Return (CAGR)</h6><span id="cagr">0%</span>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">Projects the future value of your investment with contributions and compound interest (annuity due).</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions">
+    <h5>How to use the Crypto Profit Calculator</h5>
+    <ul>
+      <li>Enter your investment amount in the “Investment ($)” field.</li>
+      <li>Enter the buy price in “Buy Price (USD)”.</li>
+      <li>Enter the sell price in “Sell Price (USD)”.</li>
+      <li>Optional: Enter fees for investment and withdrawal, and select fee type (% or $).</li>
+      <li>Click “Calculate Profit” to see Total Profit/Loss, ROI, Break-Even Price per coin, and Total Exit Amount.</li>
+      <li>Profits are never guaranteed, even if calculated in advance.</li>
+    </ul>
+
+    <h5>How to use the Crypto Investment Calculator</h5>
+    <ul>
+      <li>Enter the initial investment ($).</li>
+      <li>Enter additional contributions ($).</li>
+      <li>Select contribution frequency (daily, weekly, monthly, yearly).</li>
+      <li>Enter expected annual return (%).</li>
+      <li>Enter investment duration in years.</li>
+      <li>Click “Calculate Investment” to see Future Value, Total Contributions, Total Profit, and CAGR.</li>
+    </ul>
+
+    <h5>What is a Crypto Profit Calculator?</h5>
+    <ul>
+      <li>A tool to calculate potential profit or loss from a crypto trade.</li>
+      <li>Allows input of buy price, sell price, number of coins, and optional fees.</li>
+      <li>Shows results including Total Profit/Loss, ROI, Break-Even Price, and Total Exit Amount.</li>
+    </ul>
+
+    <h5>How does it work?</h5>
+    <ul>
+      <li>Calculates total cost including purchase price and fees.</li>
+      <li>Computes revenue from selling price and coin amount.</li>
+      <li>Net profit = Revenue − Total Cost.</li>
+      <li>ROI (%) = (Profit ÷ Total Cost) × 100.</li>
+      <li>Break-Even Price = Total Cost ÷ Number of Coins.</li>
+    </ul>
+
+    <h5>Crypto Profit Formula</h5>
+    <ul>
+      <li><strong>Profit</strong> = (Sell Price × Number of Coins) − Total Cost</li>
+      <li><strong>Total Cost</strong> includes: Buy Price × Number of Coins + fees</li>
+      <li><strong>ROI (%)</strong> = (Profit ÷ Total Cost) × 100</li>
+      <li><strong>Break-Even Price</strong> = Total Cost ÷ Number of Coins</li>
+    </ul>
+
+    <h5>Other calculators you might like:</h5>
+    <ul>
+      <li><a href="https://cryptocalculators.net/crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+      <li><a href="https://cryptocalculators.net/crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+      <li><a href="https://cryptocalculators.net/crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+      <li><a href="https://cryptocalculators.net/crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+      <li><a href="https://cryptocalculators.net/crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function calculateProfit(){
+  const investment = parseFloat(document.getElementById('profitInvestment').value)||0;
+  const buy = parseFloat(document.getElementById('profitBuy').value)||0;
+  const sell = parseFloat(document.getElementById('profitSell').value)||0;
+  const invFeeType = document.querySelector('input[name="invFeeType"]:checked').value;
+  const invFeeVal = parseFloat(document.getElementById('profitInvFee').value)||0;
+  const withFeeType = document.querySelector('input[name="withFeeType"]:checked').value;
+  const withFeeVal = parseFloat(document.getElementById('profitWithFee').value)||0;
+
+  let buyFee = invFeeType==='percentage'?investment*invFeeVal/100:invFeeVal;
+  let grossProfit = (sell*investment/buy)-investment;
+  let withdrawalFee = withFeeType==='percentage'? (investment+grossProfit)*withFeeVal/100:withFeeVal;
+  let netProfit = grossProfit - buyFee - withdrawalFee;
+  let roi = investment? (netProfit/investment*100).toFixed(2) : 0;
+  let exitAmount = investment + netProfit;
+  let breakEven = buy + (buyFee + withdrawalFee)/ (investment/buy);
+
+  document.getElementById('totalProfit').textContent='$'+netProfit.toFixed(2);
+  document.getElementById('roi').textContent=roi+'%';
+  document.getElementById('exitAmount').textContent='$'+exitAmount.toFixed(2);
+  document.getElementById('breakEven').textContent='$'+breakEven.toFixed(2);
+}
+
+function calculateInvestment(){
+  const initial = parseFloat(document.getElementById('invInitial').value)||0;
+  const add = parseFloat(document.getElementById('invAdd').value)||0;
+  const freq = document.getElementById('invFreq').value;
+  const rate = parseFloat(document.getElementById('invReturn').value)/100||0;
+  const years = parseFloat(document.getElementById('invYears').value)||0;
+
+  let periods=years;
+  if(freq==='monthly') periods=years*12;
+  else if(freq==='quarterly') periods=years*4;
+
+  const periodRate = freq==='yearly'?rate: freq==='quarterly'? Math.pow(1+rate,1/4)-1 : Math.pow(1+rate,1/12)-1;
+  let fv = initial*Math.pow(1+periodRate,periods);
+  for(let i=1;i<=periods;i++){ fv += add*Math.pow(1+periodRate,periods-i); }
+  let totalContrib = initial + add*periods;
+  let totalProfit = fv - totalContrib;
+  let cagr = totalContrib? ((fv/totalContrib)**(1/years)-1)*100 : 0;
+
+  document.getElementById('futureValue').textContent='$'+fv.toFixed(2);
+  document.getElementById('totalContrib').textContent='$'+totalContrib.toFixed(2);
+  document.getElementById('totalInterest').textContent='$'+totalProfit.toFixed(2);
+  document.getElementById('cagr').textContent=cagr.toFixed(2)+'%';
+}
+</script>
+</body>
+</html>
