@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funding Rate Calculator | Crypto Calculators</title>
+<meta name="description" content="Funding Rate Calculator for crypto futures. Calculate funding fees, fee per interval, and % of margin to plan leveraged trades effectively.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {background:#f4f6fa; font-family:Arial, sans-serif;}
+.navbar {background:#0b3d91;}
+.navbar .navbar-brand {color:#fff; font-weight:700;}
+.navbar .navbar-brand:hover {color:#ffc107;}
+.navbar .nav-link {color:#fff;}
+.navbar .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:900px;margin:30px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;}
+.result-box {background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin-bottom:15px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.result-box span {font-size:18px;font-weight:600;}
+.result-positive {color:#0b3d91;}
+.result-negative {color:#c82333;}
+.instructions {margin-top:30px;background:#f8f9fb;padding:20px;border-radius:8px;font-size:14px;color:#555;line-height:1.6;}
+.instructions h5 {margin-bottom:10px;color:#0b3d91;}
+.instructions ul {padding-left:20px;}
+.instructions ul li {margin-bottom:5px;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.banner h1 {font-size:28px;font-weight:700;}
+.banner p {font-size:16px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Funding Rate Calculator | Crypto Calculators",
+  "url": "https://cryptocalculators.net/funding-rate-calculator.html",
+  "description": "Funding Rate Calculator for crypto futures. Calculate funding fees, fee per interval, and % of margin to plan leveraged trades effectively.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Crypto Calculators",
+    "url": "https://cryptocalculators.net/"
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "Funding Rate Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "Estimate funding fees, fee per interval, and % of margin for crypto futures trades using position size, leverage, funding rate, interval, and holding time.",
+    "url": "https://cryptocalculators.net/funding-rate-calculator.html"
+  },
+  "keywords": "Funding Rate Calculator, Crypto Futures, Crypto Trading Calculator, Leverage, Funding Fees, Crypto Margin Calculator",
+  "mainEntityOfPage": "https://cryptocalculators.net/funding-rate-calculator.html",
+  "faq": [
+    {
+      "@type": "Question",
+      "name": "What is a funding rate in crypto trading?",
+      "acceptedAnswer": {"@type": "Answer","text":"A funding rate is a periodic fee paid between long and short traders to keep the futures price aligned with the spot market."}
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate crypto funding fees manually?",
+      "acceptedAnswer": {"@type": "Answer","text":"Multiply your position size by the funding rate, then multiply that by the number of intervals per day and the holding time in days."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is the funding rate always charged every 8 hours?",
+      "acceptedAnswer": {"@type": "Answer","text":"No, it varies by exchange. Some use 8-hour intervals, others charge hourly or daily."}
+    },
+    {
+      "@type": "Question",
+      "name": "What does a negative funding rate mean?",
+      "acceptedAnswer": {"@type": "Answer","text":"It means short traders are paying long traders, indicating bearish sentiment in the market."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why do funding fees matter in crypto futures?",
+      "acceptedAnswer": {"@type": "Answer","text":"They can reduce profits or add costs if you're holding leveraged positions over time."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a funding rate calculator for all exchanges?",
+      "acceptedAnswer": {"@type": "Answer","text":"Yes, as long as you know the funding rate, position size, and holding time, it works across all platforms."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li><a class="dropdown-item" href="./math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="./financial-calculators.html">Financial Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Funding Rate Calculator</h1>
+    <p>Use our funding rate calculator to instantly estimate how much you’ll pay or receive in funding rates when trading crypto futures. This tool helps you calculate funding fees with precision, based on your position size, leverage, holding time, and the current funding rate.</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Calculator Box -->
+  <div class="calc-box">
+    <div class="row g-3">
+      <!-- Row 1 -->
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Position Size ($)</label>
+        <input type="number" class="form-control" id="positionSize" placeholder="Enter position size">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Leverage (x)</label>
+        <input type="number" class="form-control" id="leverage" placeholder="Enter leverage">
+      </div>
+
+      <!-- Row 2 -->
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Funding Rate (%)</label>
+        <input type="number" class="form-control" id="fundingRate" placeholder="Enter funding rate">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Position Direction</label>
+        <select class="form-select" id="positionDir">
+          <option value="long">Long</option>
+          <option value="short">Short</option>
+        </select>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Funding Interval (hours)</label>
+        <input type="number" class="form-control" id="fundingInterval" placeholder="e.g., 8">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Holding Time (days)</label>
+        <input type="number" class="form-control" id="holdingDays" placeholder="Enter number of days">
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100 mb-3 mt-3" onclick="calculateFunding()">Calculate Funding</button>
+
+    <!-- Results -->
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="result-box">
+          <h6>Total Funding Fee</h6>
+          <span id="totalFunding" class="result-positive">$0</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="result-box">
+          <h6>Fee per Interval</h6>
+          <span id="feeInterval" class="result-positive">$0</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="result-box">
+          <h6>Funding % of Margin</h6>
+          <span id="fundingPercent" class="result-positive">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions">
+    <h5>What is a funding rate calculator?</h5>
+    <p>A funding rate calculator is a tool that helps traders estimate the cost or income from holding a leveraged position in crypto futures. It shows whether you’ll pay or receive funding based on the current funding rate, your position size, leverage, and holding time.</p>
+    <p>In crypto futures trading, funding fees are periodic payments exchanged between long and short traders to keep the contract price aligned with the spot market. These small fees can add up over time, especially with high leverage or long holding periods, so it’s essential to know your numbers before opening a position.</p>
+    <p>Using a funding fee calculator, you can instantly see how much you’ll pay per interval, per day, and as a percentage of your margin. It also shows your break-even price movement and market bias, helping you decide whether the trade is worth the risk.</p>
+
+    <h5>How do you calculate funding fees?</h5>
+    <p>Funding Fee = Position Size × Funding Rate × Number of Intervals</p>
+    <p>Example: $10,000 position, 0.01% funding rate, 3 intervals/day → $3/day, 7 days → $21 total.</p>
+
+    <h5>How does the calculator work?</h5>
+    <ul>
+      <li>Funding Fee per Interval = Position Size × Funding Rate</li>
+      <li>Total Funding Fee = Fee per Interval × Intervals per Day × Holding Days</li>
+      <li>Funding % of Margin = Total Funding / Margin × 100</li>
+    </ul>
+
+    <h5>Who is the funding rate calculator for?</h5>
+    <p>Crypto futures traders using platforms like Binance, Bybit, MEXC. Useful for swing trading, scalping, large positions, or farming positive funding income.</p>
+
+    <h5>Benefits</h5>
+    <ul>
+      <li>Clear cost forecasts</li>
+      <li>Smarter trade planning</li>
+      <li>Risk-to-reward optimization</li>
+      <li>Strategy validation</li>
+      <li>Break-even insight</li>
+    </ul>
+
+    <h5>Example calculations</h5>
+    <p>Example 1: $10,000 Long, 20x leverage, +0.01%, 8h interval, 5 days → Total $150</p>
+    <p>Example 2: $15,000 Short, 30x leverage, -0.015%, 1 interval/day, 10 days → Total $225</p>
+
+    <h5>Calculation formula</h5>
+    <p>Funding Fee per Interval = Position Size × Funding Rate<br>
+    Total Funding Fee = Fee × Intervals/day × Holding Days<br>
+    Funding % of Margin = Total Funding / Margin × 100</p>
+
+    <h5>FAQ</h5>
+    <ul>
+      <li>What is a funding rate in crypto trading?</li>
+      <li>How to calculate manually?</li>
+      <li>Is funding always every 8h?</li>
+      <li>Negative rate?</li>
+      <li>Why important?</li>
+      <li>Works on all exchanges?</li>
+    </ul>
+  </div>
+
+  <!-- Other Calculators -->
+  <div class="instructions mt-4">
+    <h5>Other calculators you might like:</h5>
+    <ul>
+      <li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+      <li><a href="./crypto-investment-calculator.html">Crypto Investment Calculator</a></li>
+      <li><a href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+      <li><a href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+      <li><a href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+      <li><a href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+      <li><a href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+      <li><a href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function calculateFunding() {
+  const posSize = parseFloat(document.getElementById('positionSize').value)||0;
+  const leverage = parseFloat(document.getElementById('leverage').value)||1;
+  const rate = parseFloat(document.getElementById('fundingRate').value)/100||0;
+  const dir = document.getElementById('positionDir').value;
+  const intervalH = parseFloat(document.getElementById('fundingInterval').value)||8;
+  const days = parseFloat(document.getElementById('holdingDays').value)||0;
+
+  const intervalsPerDay = 24 / intervalH;
+  const totalIntervals = intervalsPerDay * days;
+  const margin = posSize / leverage;
+
+  let feePerInterval = posSize * rate;
+  let totalFee = feePerInterval * totalIntervals;
+  let feePercent = margin? (totalFee / margin * 100) : 0;
+
+  const sign = (dir==='long' && rate>0 || dir==='short' && rate<0) ? 1 : -1;
+
+  document.getElementById('feeInterval').textContent = '$'+(feePerInterval*sign).toFixed(2);
+  document.getElementById('totalFunding').textContent = '$'+(totalFee*sign).toFixed(2);
+  document.getElementById('fundingPercent').textContent = (feePercent*sign).toFixed(2)+'%';
+
+  document.getElementById('feeInterval').className = 'result-box span '+ (feePerInterval*sign>=0?'result-negative':'result-positive');
+  document.getElementById('totalFunding').className = 'result-box span '+ (totalFee*sign>=0?'result-negative':'result-positive');
+  document.getElementById('fundingPercent').className = 'result-box span '+ (feePercent*sign>=0?'result-negative':'result-positive');
+}
+</script>
+
+</body>
+</html>
