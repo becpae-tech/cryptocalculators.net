@@ -14,9 +14,8 @@ body {background:#f4f6fa; font-family:Arial, sans-serif;}
 .input-group-custom {margin-bottom:15px;}
 .result-box {background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin-bottom:15px;}
 .result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
-.result-box span {font-size:18px;font-weight:600;}
-.result-positive {color:#0b3d91;}
-.result-negative {color:#c82333;}
+.result-positive {color:#0b3d91; font-weight:600;}
+.result-negative {color:#c82333; font-weight:600;}
 .instructions {margin-top:30px;background:#f8f9fb;padding:20px;border-radius:8px;font-size:14px;color:#555;line-height:1.6;}
 .instructions h5 {margin-bottom:10px;color:#0b3d91;}
 .instructions ul {padding-left:20px;}
@@ -27,6 +26,11 @@ body {background:#f4f6fa; font-family:Arial, sans-serif;}
 footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
 a {color:#0b3d91;text-decoration:none;}
 a:hover {text-decoration:underline;}
+
+/* Dropdown submenu */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
 </style>
 <script type="application/ld+json">
 {
@@ -113,7 +117,7 @@ a:hover {text-decoration:underline;}
                 <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
               </ul>
             </li>
-			<li class="dropdown-submenu">
+            <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
@@ -131,23 +135,19 @@ a:hover {text-decoration:underline;}
                 <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
                 <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
                 <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
-				<li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
                 <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
                 <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
                 <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
               </ul>
             </li>
-
-
-            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
             <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
             <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
             <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
             <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
             <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
             <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
-			
-			
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -158,7 +158,7 @@ a:hover {text-decoration:underline;}
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
-		 <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
@@ -170,7 +170,6 @@ a:hover {text-decoration:underline;}
     </div>
   </div>
 </nav>
-
 
 <!-- Banner -->
 <section class="banner">
@@ -185,7 +184,6 @@ a:hover {text-decoration:underline;}
   <!-- Calculator Box -->
   <div class="calc-box">
     <div class="row g-3">
-      <!-- Row 1 -->
       <div class="col-md-6 input-group-custom">
         <label class="form-label">Position Size ($)</label>
         <input type="number" class="form-control" id="positionSize" placeholder="Enter position size">
@@ -194,8 +192,6 @@ a:hover {text-decoration:underline;}
         <label class="form-label">Leverage (x)</label>
         <input type="number" class="form-control" id="leverage" placeholder="Enter leverage">
       </div>
-
-      <!-- Row 2 -->
       <div class="col-md-6 input-group-custom">
         <label class="form-label">Funding Rate (%)</label>
         <input type="number" class="form-control" id="fundingRate" placeholder="Enter funding rate">
@@ -207,8 +203,6 @@ a:hover {text-decoration:underline;}
           <option value="short">Short</option>
         </select>
       </div>
-
-      <!-- Row 3 -->
       <div class="col-md-6 input-group-custom">
         <label class="form-label">Funding Interval (hours)</label>
         <input type="number" class="form-control" id="fundingInterval" placeholder="e.g., 8">
@@ -221,7 +215,6 @@ a:hover {text-decoration:underline;}
 
     <button class="btn btn-primary w-100 mb-3 mt-3" onclick="calculateFunding()">Calculate Funding</button>
 
-    <!-- Results -->
     <div class="row g-3">
       <div class="col-md-4">
         <div class="result-box">
@@ -293,7 +286,6 @@ a:hover {text-decoration:underline;}
       <li>Works on all exchanges?</li>
     </ul>
   </div>
-
   <!-- Other Calculators -->
   <div class="instructions mt-4">
     <h5>Other calculators you might like:</h5>
@@ -318,12 +310,12 @@ a:hover {text-decoration:underline;}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 function calculateFunding() {
-  const posSize = parseFloat(document.getElementById('positionSize').value)||0;
-  const leverage = parseFloat(document.getElementById('leverage').value)||1;
-  const rate = parseFloat(document.getElementById('fundingRate').value)/100||0;
+  const posSize = parseFloat(document.getElementById('positionSize').value) || 0;
+  const leverage = parseFloat(document.getElementById('leverage').value) || 1;
+  const rate = parseFloat(document.getElementById('fundingRate').value) / 100 || 0;
   const dir = document.getElementById('positionDir').value;
-  const intervalH = parseFloat(document.getElementById('fundingInterval').value)||8;
-  const days = parseFloat(document.getElementById('holdingDays').value)||0;
+  const intervalH = parseFloat(document.getElementById('fundingInterval').value) || 8;
+  const days = parseFloat(document.getElementById('holdingDays').value) || 0;
 
   const intervalsPerDay = 24 / intervalH;
   const totalIntervals = intervalsPerDay * days;
@@ -331,17 +323,21 @@ function calculateFunding() {
 
   let feePerInterval = posSize * rate;
   let totalFee = feePerInterval * totalIntervals;
-  let feePercent = margin? (totalFee / margin * 100) : 0;
+  let feePercent = margin ? (totalFee / margin * 100) : 0;
 
-  const sign = (dir==='long' && rate>0 || dir==='short' && rate<0) ? 1 : -1;
+  const sign = (dir === 'long' && rate >= 0) || (dir === 'short' && rate < 0) ? 1 : -1;
 
-  document.getElementById('feeInterval').textContent = '$'+(feePerInterval*sign).toFixed(2);
-  document.getElementById('totalFunding').textContent = '$'+(totalFee*sign).toFixed(2);
-  document.getElementById('fundingPercent').textContent = (feePercent*sign).toFixed(2)+'%';
+  const feeIntervalElem = document.getElementById('feeInterval');
+  const totalFundingElem = document.getElementById('totalFunding');
+  const fundingPercentElem = document.getElementById('fundingPercent');
 
-  document.getElementById('feeInterval').className = 'result-box span '+ (feePerInterval*sign>=0?'result-negative':'result-positive');
-  document.getElementById('totalFunding').className = 'result-box span '+ (totalFee*sign>=0?'result-negative':'result-positive');
-  document.getElementById('fundingPercent').className = 'result-box span '+ (feePercent*sign>=0?'result-negative':'result-positive');
+  feeIntervalElem.textContent = '$' + (feePerInterval * sign).toFixed(2);
+  totalFundingElem.textContent = '$' + (totalFee * sign).toFixed(2);
+  fundingPercentElem.textContent = (feePercent * sign).toFixed(2) + '%';
+
+  feeIntervalElem.className = (feePerInterval * sign >= 0) ? 'result-positive' : 'result-negative';
+  totalFundingElem.className = (totalFee * sign >= 0) ? 'result-positive' : 'result-negative';
+  fundingPercentElem.className = (feePercent * sign >= 0) ? 'result-positive' : 'result-negative';
 }
 </script>
 
