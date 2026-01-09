@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Futures Calculator Online | Calculate Profit, Margin & Liquidation</title>
+<meta name="description" content="Use the Crypto Futures Calculator to calculate profit, loss, margin, liquidation price, and max open positions for crypto futures trades. Accurate and easy to use.">
+<meta name="keywords" content="crypto futures calculator, crypto trading calculator, futures margin calculator, liquidation price calculator, leverage calculator">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="canonical" href="https://cryptocalculators.net/crypto-futures-calculator.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Crypto Futures Calculator",
+  "url": "https://yourwebsite.com/crypto-futures-calculator.html",
+  "description": "Calculate profit/loss, margin, liquidation price, and max open positions for crypto futures trades. User-friendly crypto futures calculator.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Crypto Calculators",
+    "url": "https://yourwebsite.com"
+  }
+}
+</script>
+<style>
+body {background:#f4f6fa; font-family:Arial, sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:700px; margin:30px auto; background:#fff; padding:25px; border-radius:10px; box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;}
+.position-btns {margin-bottom:20px; display:flex; justify-content:space-between; gap:2%;}
+.position-btns button {flex:1;}
+button.btn-calc {width:49%; display:inline-block;}
+.result-box {background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin-bottom:15px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.result-positive {color:#0b3d91; font-weight:600;}
+.result-negative {color:#c82333; font-weight:600;}
+.result-warning {color:#ff9800; font-weight:700;}
+.instructions {margin:30px auto; max-width:800px; font-size:14px; color:#333; line-height:1.6;}
+.instructions h5 {margin-top:20px; margin-bottom:10px; color:#0b3d91;}
+.instructions ul {padding-left:20px;}
+.instructions ul li {margin-bottom:5px;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.banner h1 {font-size:28px;font-weight:700;}
+.banner p {font-size:16px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.position-active {background:#0b3d91; color:#fff;}
+.other-calculators {max-width:700px; margin:40px auto; text-align:left;}
+.other-calculators h5 {margin-bottom:15px; color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+
+/* Dropdown submenu */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Crypto Futures Calculator</h1>
+    <p>Calculate profit/loss, margin, liquidation price, and max open positions for your crypto futures trades quickly and accurately.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <!-- Position Buttons -->
+    <div class="position-btns">
+      <button id="longBtn" class="btn btn-outline-primary position-active" onclick="setPosition('long')">Long</button>
+      <button id="shortBtn" class="btn btn-outline-primary" onclick="setPosition('short')">Short</button>
+    </div>
+    <!-- Inputs -->
+    <div class="row g-3">
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Entry Price (USD)</label>
+        <input type="number" class="form-control" id="entryPrice" placeholder="Enter entry price">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Exit Price (USD)</label>
+        <input type="number" class="form-control" id="exitPrice" placeholder="Enter exit price">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Position Size (Contracts)</label>
+        <input type="number" class="form-control" id="positionSize" placeholder="Enter size">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Leverage (×)</label>
+        <input type="number" class="form-control" id="leverage" placeholder="Enter leverage">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Account Balance (USD)</label>
+        <input type="number" class="form-control" id="accountBalance" placeholder="Enter account balance">
+      </div>
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Trading Fees (%)</label>
+        <input type="number" class="form-control" id="tradingFees" placeholder="Optional">
+      </div>
+    </div>
+    <!-- Buttons -->
+    <div class="row g-2 mb-3">
+      <div class="col-6">
+        <button class="btn btn-primary btn-calc" onclick="calculateFutures()">Calculate</button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-secondary btn-calc" onclick="resetFutures()">Reset</button>
+      </div>
+    </div>
+    <!-- Results -->
+    <div class="row g-3">
+      <div class="col-md-6"><div class="result-box"><h6>Profit/Loss</h6><span id="profitLoss" class="result-positive">$0.00</span></div></div>
+      <div class="col-md-6"><div class="result-box"><h6>Profit/Loss %</h6><span id="profitLossPercent" class="result-positive">0.00%</span></div></div>
+      <div class="col-md-6"><div class="result-box"><h6>Margin Required</h6><span id="marginReq" class="result-positive">$0.00</span></div></div>
+      <div class="col-md-6"><div class="result-box"><h6>Liquidation Price</h6><span id="liquidationPrice" class="result-positive">$0.00</span></div></div>
+      <div class="col-md-6"><div class="result-box"><h6>Max Open</h6><span id="maxOpen" class="result-positive">$0.00</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Instructions -->
+<div class="instructions" style="max-width:800px; margin:30px auto; font-size:14px; color:#333; line-height:1.6;">
+  <h5>How to use the crypto futures calculator</h5>
+  <ul>
+    <li><strong>Choose position type:</strong> Select “Long” or “Short”.</li>
+    <li><strong>Enter entry price:</strong> Input the price at which you plan to open your position (in USD).</li>
+    <li><strong>Enter exit price:</strong> Input the price at which you plan to close your position (in USD).</li>
+    <li><strong>Enter position size:</strong> Input the number of contracts you plan to trade.</li>
+    <li><strong>Choose leverage:</strong> Use the slider to set your leverage (from 1x to 200x).</li>
+    <li><strong>Add account balance:</strong> Input your total available balance (in USD).</li>
+    <li><strong>Enter trading fees:</strong> If applicable, input the percentage of trading fees charged.</li>
+    <li><strong>Click “Calculate”</strong></li>
+  </ul>
+
+  <h5>Review your results:</h5>
+  <ul>
+    <li><strong>Profit & loss:</strong> This shows your potential trade result based on the entry and exit prices of your futures contract. Profits are never guaranteed and losses can not be avoided.</li>
+    <li><strong>Margin required:</strong> The minimum amount of funds you need in your account to open the position.</li>
+    <li><strong>Liquidation price:</strong> The price at which your position will be forcibly closed to prevent further losses. In crypto futures contracts, this is determined by your leverage and account balance.</li>
+    <li><strong>Max open:</strong> The largest position size you can trade with your current balance and selected leverage.</li>
+  </ul>
+
+  <h5>What is a crypto futures calculator?</h5>
+  <p>A crypto futures calculator is a simple but powerful tool for traders. It helps you calculate critical metrics like result or loss, margin requirements, and liquidation price when trading cryptocurrency futures. By entering key details such as entry price, exit price, leverage, and position size, the calculator instantly provides actionable insights.</p>
+  <p>While it doesn’t predict market movements, it ensures you’re fully informed about the numbers behind your trade. This can be especially helpful in managing risks and maximizing potential returns in volatile crypto markets.</p>
+  <p>Crypto trading involves many variables, and miscalculations can lead to unexpected losses. Using a calculator minimizes this risk by automating the math and providing clarity. If you’re new to how these contracts work, read our guide on what crypto futures trading is to understand the fundamentals first.</p>
+
+  <h5>How does the calculator work?</h5>
+  <p>The calculator is designed to be user-friendly and straightforward and works great on crypto exchanges that offer leverage, like BYDFi, Binance and Phemex. Start by entering your trade details, including your entry price, exit price, leverage, position size, and account balance. For traders optimizing their trade sizes, our crypto position size calculator can provide additional insights into proper risk management. If applicable, include trading fees. Then, select whether you’re entering a long or short position.</p>
+  <p>Once you click the Calculate button, the calculator runs its formulas to generate key results. For example, it determines your potential result or loss based on price movement and calculates the margin required to open the trade. It also shows your liquidation price, which is critical for understanding the point at which your position could close automatically due to insufficient margin.</p>
+  <p>Everything is calculated in real-time, so you can adjust inputs and instantly see how the numbers change. This allows you to test multiple scenarios and choose the most strategic approach for your trades.</p>
+
+  <h5>What formulas does the calculator use?</h5>
+  <ul>
+    <li><strong>Profit/loss:</strong> (Exit Price - Entry Price) × Position Size × Direction - Fees</li>
+    <li><strong>Margin required:</strong> (Position Size × Entry Price) ÷ Leverage</li>
+    <li><strong>Liquidation price:</strong>
+      <ul>
+        <li>For long positions: Entry Price - (Entry Price ÷ Leverage)</li>
+        <li>For short positions: Entry Price + (Entry Price ÷ Leverage)</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+    <li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+    <li><a href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+    <li><a href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+  </ul>
+</div>
+
+<footer>
+  &copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let positionType = 'long';
+function setPosition(type){
+  positionType = type;
+  document.getElementById('longBtn').classList[type==='long'?'add':'remove']('position-active');
+  document.getElementById('shortBtn').classList[type==='short'?'add':'remove']('position-active');
+}
+function calculateFutures() {
+  const entry = parseFloat(document.getElementById('entryPrice').value)||0;
+  const exitP = parseFloat(document.getElementById('exitPrice').value)||0;
+  const size = parseFloat(document.getElementById('positionSize').value)||0;
+  const lev = parseFloat(document.getElementById('leverage').value)||1;
+  const balance = parseFloat(document.getElementById('accountBalance').value)||0;
+  const feePercent = parseFloat(document.getElementById('tradingFees').value)||0;
+  if(entry<=0||exitP<=0||size<=0||lev<=0||balance<=0){alert("Please enter valid numbers greater than 0."); return;}
+  const priceDiff = positionType==='long'? (exitP-entry):(entry-exitP);
+  const profitLoss = priceDiff*size;
+  const avgPrice = (entry+exitP)/2;
+  const fee = size*avgPrice*feePercent/100;
+  const netProfit = profitLoss-fee;
+  const marginReq = (size*entry)/lev;
+  const maxOpen = balance*lev;
+  let liqPrice = positionType==='long'? entry*(1-((balance+marginReq-fee)/(size*entry))) : entry*(1+((balance+marginReq-fee)/(size*entry)));
+  const profitPercent = (netProfit/marginReq)*100;
+  const insufficient = balance<marginReq;
+  const profitClass = insufficient?'result-warning':(netProfit>=0?'result-positive':'result-negative');
+  const percentClass = insufficient?'result-warning':(profitPercent>=0?'result-positive':'result-negative');
+  const liqClass = insufficient?'result-warning':'result-positive';
+  document.getElementById('profitLoss').textContent = insufficient?'⚠ Insufficient balance':'$'+netProfit.toFixed(2);
+  document.getElementById('profitLoss').className = profitClass;
+  document.getElementById('profitLossPercent').textContent = insufficient?'⚠':profitPercent.toFixed(2)+'%';
+  document.getElementById('profitLossPercent').className = percentClass;
+  document.getElementById('marginReq').textContent = '$'+marginReq.toFixed(2);
+  document.getElementById('liquidationPrice').textContent = '$'+liqPrice.toFixed(2);
+  document.getElementById('liquidationPrice').className = liqClass;
+  document.getElementById('maxOpen').textContent = '$'+maxOpen.toFixed(2);
+}
+function resetFutures(){
+  ['entryPrice','exitPrice','positionSize','leverage','accountBalance','tradingFees'].forEach(id=>{document.getElementById(id).value='';});
+  ['profitLoss','profitLossPercent','marginReq','liquidationPrice','maxOpen'].forEach(id=>{
+    document.getElementById(id).textContent = id==='profitLossPercent'?'0.00%':'$0.00';
+    document.getElementById(id).className='result-positive';
+  });
+  setPosition('long');
+}
+</script>
+
+</body>
+</html>
