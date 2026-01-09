@@ -53,11 +53,16 @@ body {background:#f4f6fa; font-family:Arial, sans-serif;}
 .banner h1 {font-size:28px;font-weight:700;}
 .banner p {font-size:16px;}
 footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+/* Dropdown submenu */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
@@ -84,7 +89,7 @@ footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:4
                 <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
               </ul>
             </li>
-			<li class="dropdown-submenu">
+            <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
@@ -102,23 +107,19 @@ footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:4
                 <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
                 <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
                 <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
-				<li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
                 <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
                 <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
                 <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
               </ul>
             </li>
-
-
-            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
             <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
             <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
             <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
             <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
             <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
             <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
-			
-			
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -129,7 +130,7 @@ footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:4
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
-		 <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
