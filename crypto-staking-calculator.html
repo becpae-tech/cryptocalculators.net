@@ -19,8 +19,6 @@ a {text-decoration:none;color:inherit;}
 header {background:#1f2a3a;color:#fff;padding:15px 0;position:relative;z-index:100;}
 header .container {display:flex;justify-content:space-between;align-items:center;}
 header .logo {font-size:24px;font-weight:600;color:#fff;}
-.navbar-dark .navbar-nav .nav-link {color:#fff;}
-.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
 nav ul {display:flex;gap:20px;list-style:none;position:relative;}
 nav ul li {position:relative;}
 nav ul li a {color:#fff;font-weight:500;padding:5px 0;display:block;font-size:14px;cursor:pointer;}
@@ -73,89 +71,46 @@ footer a {color:#aaa;}
 </head>
 <body>
 
-<!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header>
   <div class="container">
-    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
-                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
-                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
-                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
-                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
-                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
-                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
-                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+    <div class="logo"><a href="./"><img src="./logo.png" alt="Crypto Calculator" width="300" height="50"></a></div>
+    <div class="mobile-toggle"><i class="fa fa-bars"></i></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a>Calculators <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li>
+              <a>Crypto Calculator</a>
+              <ul>
+                <li><a href="crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a href="crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a href="crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a href="crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a href="funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a href="crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a href="liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a href="crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
               </ul>
             </li>
-			<li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
-                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
-                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
-                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
-                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
-              </ul>
-            </li>
-            <li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
-                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
-                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
-                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
-                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
-				<li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
-                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
-                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
-                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
-              </ul>
-            </li>
-
-
-            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
-            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
-            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
-            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
-            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
-            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
-            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
-			
-			
+            <li><a href="math-calculators.html">Math Calculators</a></li>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
-            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+        <li>
+          <a>Education <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li><a href="beginner-guides.html">Beginner Guides</a></li>
+            <li><a href="advanced-strategies.html">Advanced Strategies</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
-		 <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
-            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+        <li><a href="#analysis">Analysis</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
-</nav>
+</header>
 
 <section class="banner">
   <h1>Crypto Staking calculator – APY%</h1>
