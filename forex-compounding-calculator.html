@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex Compounding Calculator – Calculate Future Value & Profit of Your Forex Investment</title>
+<meta name="description" content="Use our Forex Compounding Calculator to calculate future value and total profit of a forex investment using initial investment, additional contributions, interest rate, duration, and compounding frequencyUse our Forex Compounding Calculator to estimate the future value and total profit of your forex trades. Enter your initial investment, interest rate, duration, compounding frequency, and additional contributions to project your investment growth over time.">
+<meta name="keywords" content="forex compounding calculator, forex compound interest calculator, forex future value calculator, investment growth calculator, forex profit projection">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {background:#f4f6fa; font-family:Arial, sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:700px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;}
+button.btn-calc {width:48%;display:inline-block;}
+.result-row {display:flex;justify-content:space-between;align-items:center;margin-top:15px;}
+.result-box {flex:1;background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin:0 5px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.result-positive {color:#0b3d91;font-weight:600;}
+.instructions {margin:30px auto;max-width:700px;font-size:14px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+#yieldChart {margin-top:30px;}
+.slider-input {display:flex;align-items:center;}
+.slider-input input[type=range]{flex:1;margin-right:10px;}
+.slider-input input[type=number]{width:80px;}
+/* Dropdown submenu */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="banner">
+  <div class="container">
+    <h1>Forex Compounding Calculator</h1>
+    <p>Calculate the future value and total profit of your forex investment using compounding interest over time.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="calc-box">
+
+    <div class="row g-3">
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Initial Investment ($)</label>
+        <div class="slider-input">
+          <input type="range" min="0" max="100000" step="100" value="1000" id="initialInvestmentRange" oninput="syncNumber('initialInvestment')">
+          <input type="number" id="initialInvestment" value="1000" oninput="syncRange('initialInvestmentRange','initialInvestment');calculateForex();">
+        </div>
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Additional Contribution ($)</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="additionalContribution" placeholder="e.g. 100" value="100" oninput="calculateForex()">
+          <select id="contributionFrequency" class="form-select" onchange="calculateForex()">
+            <option value="Yearly">Yearly</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Interest Rate (%)</label>
+        <div class="input-group">
+          <input type="number" step="0.01" class="form-control" id="interestRate" placeholder="e.g. 10" value="10" oninput="calculateForex()">
+          <select id="interestFrequency" class="form-select" onchange="calculateForex()">
+            <option value="Yearly">Yearly</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Duration (Years)</label>
+        <div class="slider-input">
+          <input type="range" min="1" max="50" step="1" value="5" id="durationYearsRange" oninput="syncNumber('durationYears')">
+          <input type="number" id="durationYears" value="5" oninput="syncRange('durationYearsRange','durationYears');calculateForex();">
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-2 mb-3">
+      <div class="col-6">
+        <button class="btn btn-primary btn-calc" onclick="calculateForex()">Calculate</button>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-secondary btn-calc" onclick="resetForex()">Reset</button>
+      </div>
+    </div>
+
+    <div class="result-row">
+      <div class="result-box">
+        <h6>Total Future Value:</h6>
+        <span id="futureValue" class="result-positive">$0.00</span>
+      </div>
+      <div class="result-box">
+        <h6>Total Profit:</h6>
+        <span id="totalProfit" class="result-positive">$0.00</span>
+      </div>
+    </div>
+
+    <canvas id="yieldChart" height="300"></canvas>
+  </div>
+</div>
+
+<!-- Instructions -->
+<div class="instructions">
+<h5>How to use the forex compounding calculator</h5>
+<p>Follow this step-by-step guide to get your projected future value and profit using the compounding effect:</p>
+<ul>
+<li>Add your initial investment.</li>
+<li>Insert your interest rate %.</li>
+<li>Add the time in years.</li>
+<li>Select the compound frequency.</li>
+<li>Add the additional contributions.</li>
+<li>Select contribution frequency.</li>
+<li>Click Calculate!</li>
+</ul>
+
+<h5>What is a forex compounding calculator?</h5>
+<p>A forex compounding calculator is a tool used by traders to figure out the future value of a forex trade over time. It shows the effect of reinvesting capital and interest, providing exponential growth insights displayed in numbers and a yield chart. Results are indicative and cannot guarantee profit.</p>
+
+<h5>How does it work?</h5>
+<p>The calculator applies the power of compound interest, reinvesting gains over each period according to the selected compounding frequency. Inputs needed include initial investment, interest rate, time, compounding frequency, additional contributions, and contribution frequency. This projects growth over time.</p>
+
+<h5>How to calculate compound interest in forex</h5>
+<p>Compound interest considers both the initial investment and accumulated gains. Compounding can be done monthly, quarterly, or yearly, with optional additional contributions. The standard formula is:</p>
+<p><strong>A = P (1 + r/n)^(n*t)</strong>, where A=future value, P=principal, r=annual rate, n=compounds/year, t=time in years.</p>
+</div>
+
+<div class="other-calculators">
+<h5>Other Calculators</h5>
+<ul>
+<li><a href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+<li><a href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+<li><a href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+</ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let yieldChart;
+
+function syncNumber(id){
+  document.getElementById(id).value = document.getElementById(id+'Range').value;
+  calculateForex();
+}
+
+function syncRange(rangeId, numberId){
+  document.getElementById(rangeId).value = document.getElementById(numberId).value;
+}
+
+function formatNumber(n){
+  if(n>=1e6) return (n/1e6).toFixed(2)+'M';
+  if(n>=1e3) return (n/1e3).toFixed(0)+'K';
+  return n.toFixed(2);
+}
+
+function calculateForex(){
+  const principal = parseFloat(document.getElementById('initialInvestment').value) || 0;
+  const contribution = parseFloat(document.getElementById('additionalContribution').value) || 0;
+  const rate = parseFloat(document.getElementById('interestRate').value)/100 || 0;
+  const years = parseInt(document.getElementById('durationYears').value) || 0;
+  const contribFreq = document.getElementById('contributionFrequency').value;
+  const interestFreq = document.getElementById('interestFrequency').value;
+
+  if(principal<=0||years<=0){return;}
+
+  const freqMap = {Yearly:1, Quarterly:4, Monthly:12};
+  const n = freqMap[interestFreq];
+  const m = freqMap[contribFreq];
+
+  let futureValue = principal;
+  const labels=[];
+  const data=[];
+
+  for(let i=1;i<=years*n;i++){
+    let periodContribution = contribution/m;
+    futureValue = (futureValue + periodContribution) * (1 + rate/n);
+    if(i % n === 0){
+      labels.push(`Year ${i/n}`);
+      data.push(futureValue.toFixed(2));
+    }
+  }
+
+  const totalProfit = futureValue - principal - contribution*years;
+  document.getElementById('futureValue').textContent='$'+futureValue.toFixed(2);
+  document.getElementById('totalProfit').textContent='$'+totalProfit.toFixed(2);
+
+  const ctx = document.getElementById('yieldChart').getContext('2d');
+  if(yieldChart) yieldChart.destroy();
+
+  const gradient = ctx.createLinearGradient(0,0,0,300);
+  gradient.addColorStop(0,'rgba(11,61,145,0.3)');
+  gradient.addColorStop(1,'rgba(11,61,145,0)');
+
+  yieldChart = new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:labels,
+      datasets:[{
+        label:'Future Value ($)',
+        data:data,
+        backgroundColor:gradient,
+        borderColor:'rgba(11,61,145,1)',
+        borderWidth:2,
+        fill:true,
+        tension:0.4,
+        pointRadius:3
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          mode:'index',
+          intersect:false,
+          callbacks:{
+            label:function(context){
+              return 'Future Value: $'+parseFloat(context.raw).toLocaleString();
+            }
+          }
+        }
+      },
+      scales:{
+        y:{
+          beginAtZero:true,
+          ticks:{
+            callback:function(value){return formatNumber(value);}
+          }
+        }
+      }
+    }
+  });
+}
+
+function resetForex(){
+  ['initialInvestment','additionalContribution','interestRate','durationYears'].forEach(id=>document.getElementById(id).value='');
+  ['initialInvestmentRange','durationYearsRange'].forEach(id=>document.getElementById(id).value=0);
+  document.getElementById('futureValue').textContent='$0.00';
+  document.getElementById('totalProfit').textContent='$0.00';
+  if(yieldChart) yieldChart.destroy();
+}
+</script>
+</body>
+</html>
