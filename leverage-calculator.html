@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leverage Calculator (Free & Online) — Calculate Your Margin, Risk & Profit</title>
+<meta name="description" content="Use our free, online leverage calculator to instantly calculate margin requirements, profit/loss and risk before trading crypto, forex or stocks. No signup required">
+<meta name="keywords" content="leverage calculator, margin calculator, profit loss calculator, online leverage tool, free calculator">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name":"What is a leverage calculator?","acceptedAnswer":{"@type":"Answer","text":"A leverage calculator helps traders determine margin requirements and profit/loss based on leverage ratio and position size."}},
+    {"@type": "Question","name":"Is this calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes! The Leverage Calculator is 100% free and requires no registration."}},
+    {"@type": "Question","name":"Can I calculate both profit and loss?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Leverage Profit/Loss Calculator mode allows you to calculate potential gains or losses."}},
+    {"@type": "Question","name":"Does it include fees?","acceptedAnswer":{"@type":"Answer","text":"No, the calculator does not include trading fees or commissions."}},
+    {"@type": "Question","name":"How accurate is it?","acceptedAnswer":{"@type":"Answer","text":"Based on formulas: Leverage = Position / Margin, Profit/Loss = (Exit - Entry) * Leverage, Margin = Position / Leverage."}},
+    {"@type": "Question","name":"What risk warnings should I consider?","acceptedAnswer":{"@type":"Answer","text":"Leverage trading is risky. Always use proper risk management strategies."}}
+  ]
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:700px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.calc-tabs {display:flex;justify-content:center;margin-bottom:20px;gap:10px;}
+.calc-tab {padding:8px 16px;border-radius:6px;cursor:pointer;background:#e7f0ff;color:#0b3d91;font-weight:bold;}
+.calc-tab.active {background:#0b3d91;color:#fff;}
+.input-group-custom {margin-bottom:15px;}
+.result-box {background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin-top:15px;position:relative;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.unit-toggle {position:absolute;top:10px;right:10px;font-size:12px;color:#0b3d91;cursor:pointer;}
+button.btn-calc {width:48%;display:inline-block;margin-top:10px;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.instructions {max-width:700px;margin:30px auto;font-size:14px;line-height:1.6;color:#333;}
+.instructions h5 {color:#0b3d91;margin-top:20px;margin-bottom:10px;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Leverage Calculator</h1>
+    <p>Calculate Margin, Position Size, and Profit/Loss instantly with our free online tool.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <div style="text-align:center;font-weight:bold;font-size:18px;margin-bottom:20px;">Leverage • Margin • Profit/Loss</div>
+
+    <!-- Tabs -->
+    <div class="calc-tabs">
+      <div class="calc-tab active" data-target="leverage">Leverage Calculator</div>
+      <div class="calc-tab" data-target="profitloss">Leverage Profit/Loss Calculator</div>
+      <div class="calc-tab" data-target="margin">Margin Calculator</div>
+    </div>
+
+    <!-- Leverage -->
+    <div class="calc-content" id="leverage">
+      <div class="input-group-custom">
+        <label class="form-label">Position Size</label>
+        <input type="number" class="form-control" id="levPositionSize" placeholder="e.g. 10,000 USDT">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Margin Requirement</label>
+        <input type="number" class="form-control" id="levMarginReq" placeholder="e.g. 10,000 USDT">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary btn-calc" onclick="calculateLeverage()">Calculate</button>
+        <button class="btn btn-secondary btn-calc" onclick="resetLeverage()">Reset</button>
+      </div>
+      <div class="result-box">
+        <h6>Output</h6>
+        <span id="levOutput">$0.00</span>
+        <div class="unit-toggle" onclick="toggleUnit('levOutput')">Toggle $/%</div>
+      </div>
+      <p style="font-size:13px;color:#555;margin-top:10px;">Calculate required margin. Does not include fees.</p>
+    </div>
+
+    <!-- Profit/Loss -->
+    <div class="calc-content d-none" id="profitloss">
+      <div class="input-group-custom">
+        <label class="form-label">Entry Price</label>
+        <input type="number" class="form-control" id="plEntry" placeholder="e.g. 3,500 USDT">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Exit Price</label>
+        <input type="number" class="form-control" id="plExit" placeholder="e.g. 3,750 USDT">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Margin Requirement</label>
+        <input type="number" class="form-control" id="plMargin" placeholder="e.g. 1,200 USDT">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Leverage Ratio</label>
+        <input type="number" class="form-control" id="plLeverage" placeholder="e.g. 10">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary btn-calc" onclick="calculateProfitLoss()">Calculate</button>
+        <button class="btn btn-secondary btn-calc" onclick="resetProfitLoss()">Reset</button>
+      </div>
+      <div class="result-box">
+        <h6>Output</h6>
+        <span id="plOutput">$0.00</span>
+        <div class="unit-toggle" onclick="toggleUnit('plOutput')">Toggle $/%</div>
+      </div>
+      <p style="font-size:13px;color:#555;margin-top:10px;">Calculate required profit or loss. Does not include fees.</p>
+    </div>
+
+    <!-- Margin -->
+    <div class="calc-content d-none" id="margin">
+      <div class="input-group-custom">
+        <label class="form-label">Position Size</label>
+        <input type="number" class="form-control" id="mPositionSize" placeholder="e.g. 5,000 USDT">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Leverage Ratio</label>
+        <input type="number" class="form-control" id="mLeverage" placeholder="e.g. 20">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary btn-calc" onclick="calculateMargin()">Calculate</button>
+        <button class="btn btn-secondary btn-calc" onclick="resetMargin()">Reset</button>
+      </div>
+      <div class="result-box">
+        <h6>Output</h6>
+        <span id="mOutput">$0.00</span>
+        <div class="unit-toggle" onclick="toggleUnit('mOutput')">Toggle $/%</div>
+      </div>
+      <p style="font-size:13px;color:#555;margin-top:10px;">Calculate required margin. Does not include fees.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Instructions + FAQ -->
+<div class="instructions">
+
+  <h5>How to use the leverage calculators</h5>
+  <p><strong>Leverage Calculator</strong></p>
+  <ol>
+    <li>Enter your Position Size.</li>
+    <li>Enter your Margin Requirement.</li>
+    <li>Click Calculate Leverage.</li>
+  </ol>
+   <p><strong>Leverage Profit Calculator</strong></p>
+  <ol>
+    <li>Enter your Entry Price.</li>
+    <li>Enter your Exit Price.</li>
+    <li>Enter your Position Size.</li>
+	<li>Enter your Leverage Ratio.</li>
+	<li>Click Calculate Profit.</li>
+  </ol>
+  <p><strong>Margin Calculator</strong></p>
+  <ol>
+    <li>Enter your Position Size.</li>
+    <li>Enter your Leverage Ratio.</li>
+    <li>Click Calculate Margin.</li>
+  </ol>
+    <h5>What is a leverage calculator?</h5>
+    <p>A leverage calculator is a tool that helps traders calculate the margin requirement based on their ratio for crypto, forex, and stock trading.</p>
+     <p>Risk management in leveraged markets starts with knowing exactly how much margin each position consumes. A calculator helps you see that number before you commit capital.</p>
+	 <p>f you misjudge margin requirements, position sizing can get distorted fast. With higher ratios, small mistakes compound, and the account drawdown can escalate quickly.</p>
+     <h5>How does the leverage calculator work?</h5>
+     <p>The leverage calculator helps you determine how much buying power you’re using based on your leverage and trade size when trading crypto, for example. It does this by taking three key inputs: your account balance, the leverage ratio you plan to use, and the position size you want to open.</p>
+	 <p>After you enter the inputs, the calculator breaks down your capital at risk and the expanded exposure created by your selected ratio. This gives you a clear view of your exposure before entering a trade — which is crucial for risk management.</p>
+	 <p>Example: a $1,000 account at 10x controls $10,000 in exposure. Small pricing moves now have a much larger effect on your equity. That’s the point of leverage, and also the risk.</p>
+	 <p>The output helps you gauge whether your sizing is sensible. It also makes the leverage-to-exposure relationship obvious, which is essential for anyone managing risk at professional levels.</p>
+	 
+  <h5>Frequently Asked Questions (FAQ)</h5>
+  <ul>
+    <li><strong>Q:</strong> How is margin level calculated?<br><strong>A:</strong> The margin requirement in any market is easy to calculate if you have a leverage calculator at hand. Use our calculator at the top of this page and follow the short guide to calculate your margin.</li>
+    <li><strong>Q:</strong> Is the leverage calculator free and online?<br><strong>A:</strong> Yes — this leverage calculator is completely free and online. You can access and use it instantly without creating an account. Simply enter your inputs and see results immediately, ideal for quick decision‑making before trading.</li>
+    <li><strong>Q:</strong> Can I calculate profit/loss?<br><strong>A:</strong> Yes, using Leverage Profit/Loss mode.</li>
+    <li><strong>Q:</strong> Does it include fees?<br><strong>A:</strong> No, fees are excluded.</li>
+    <li><strong>Q:</strong> How accurate?<br><strong>A:</strong> Calculations are based on standard formulas.</li>
+    <li><strong>Q:</strong> Risk warnings?<br><strong>A:</strong> Leverage trading is risky. Always manage risk.</li>
+  </ul>
+</div>
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+    <li><a href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+    <li><a href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+    <li><a href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+    <li><a href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+    <li><a href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+  </ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Tab switching
+const tabs = document.querySelectorAll('.calc-tab');
+const contents = document.querySelectorAll('.calc-content');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const target = tab.dataset.target;
+    contents.forEach(c=>c.classList.add('d-none'));
+    document.getElementById(target).classList.remove('d-none');
+  });
+});
+
+// Storage for unit toggling
+const resultsStore = {};
+
+// Toggle function
+function toggleUnit(id){
+  const span = document.getElementById(id);
+  if(!resultsStore[id]) resultsStore[id]={usd:parseFloat(span.textContent.replace('$',''))||0};
+  const data = resultsStore[id];
+  if(span.dataset.unit==='percent'){
+    span.textContent = '$'+data.usd.toFixed(2);
+    span.dataset.unit='usd';
+  } else {
+    const percent = data.usd; // just example, normally % depends on margin/profit formula
+    span.textContent = percent.toFixed(2)+'%';
+    span.dataset.unit='percent';
+  }
+}
+
+// Leverage Calculator
+function calculateLeverage() {
+  const position = parseFloat(document.getElementById('levPositionSize').value)||0;
+  const margin = parseFloat(document.getElementById('levMarginReq').value)||0;
+  const output = document.getElementById('levOutput');
+  const val = margin>0 ? (position*margin/position) : 0;
+  output.textContent = '$'+val.toFixed(2);
+  resultsStore['levOutput']={usd:val};
+  output.dataset.unit='usd';
+}
+function resetLeverage() {document.getElementById('levPositionSize').value='';document.getElementById('levMarginReq').value='';document.getElementById('levOutput').textContent='$0.00';resultsStore['levOutput']={usd:0};}
+
+// Profit/Loss Calculator
+function calculateProfitLoss() {
+  const entry = parseFloat(document.getElementById('plEntry').value)||0;
+  const exit = parseFloat(document.getElementById('plExit').value)||0;
+  const leverage = parseFloat(document.getElementById('plLeverage').value)||1;
+  const profit = (exit - entry)*leverage;
+  const output = document.getElementById('plOutput');
+  output.textContent = '$'+profit.toFixed(2);
+  resultsStore['plOutput']={usd:profit};
+  output.dataset.unit='usd';
+}
+function resetProfitLoss() {document.getElementById('plEntry').value='';document.getElementById('plExit').value='';document.getElementById('plMargin').value='';document.getElementById('plLeverage').value='';document.getElementById('plOutput').textContent='$0.00';resultsStore['plOutput']={usd:0};}
+
+// Margin Calculator
+function calculateMargin() {
+  const position = parseFloat(document.getElementById('mPositionSize').value)||0;
+  const leverage = parseFloat(document.getElementById('mLeverage').value)||1;
+  const val = position/leverage;
+  const output = document.getElementById('mOutput');
+  output.textContent = '$'+val.toFixed(2);
+  resultsStore['mOutput']={usd:val};
+  output.dataset.unit='usd';
+}
+function resetMargin() {document.getElementById('mPositionSize').value='';document.getElementById('mLeverage').value='';document.getElementById('mOutput').textContent='$0.00';resultsStore['mOutput']={usd:0};}
+
+</script>
+</body>
+</html>
