@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex Spread Calculator – Free Online Forex Spread Calculator Tool</title>
+<meta name="description" content="Use our free online Forex Spread Calculator to instantly calculate your forex spread percentage from Ask and Bid prices. Easy and accurate tool for traders.">
+<meta name="keywords" content="forex spread calculator, forex calculator, spread calculation, ask price, bid price">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Forex Spread Calculator",
+  "url": "https://cryptocalculators.net/forex-spread-calculator.html",
+  "description": "Use our free online Forex Spread Calculator to instantly calculate your forex spread percentage from Ask and Bid prices. Easy and accurate tool for traders.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:400px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;text-center;}
+button.btn-calc {width:48%;display:inline-block;}
+.result-row {display:flex;justify-content:center;align-items:center;margin-top:20px;}
+.result-box {flex:1;background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin:0 5px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.instructions {margin:30px auto;max-width:700px;font-size:14px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.tip {display:flex;align-items:flex-start;background-color:#e9f2ff;padding:15px;border-radius:6px;font-size:14px;color:#333;margin-top:15px;}
+.tip-icon {background-color:#007bff;color:#fff;font-weight:bold;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;margin-right:10px;flex-shrink:0;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Forex Spread Calculator</h1>
+    <p>Calculate the Forex spread percentage between Ask and Bid prices instantly. Free and easy to use for traders.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <h5 class="text-center">Forex Spread Calculator</h5>
+
+    <div class="input-group-custom">
+      <label class="form-label">Ask Price:</label>
+      <input type="number" id="askPrice" class="form-control" placeholder="Ask Price:" step="0.0001">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Bid Price:</label>
+      <input type="number" id="bidPrice" class="form-control" placeholder="Bid Price:" step="0.0001">
+    </div>
+
+    <div class="result-row">
+      <div class="result-box">
+        <h6>Forex Spread</h6>
+        <span id="spreadOutput">0.00%</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">i</div>
+      <div>
+        Information: A low spread cost in the Forex market is between 0.03% – 0.06%. A high spread cost in the Forex market is considered anything above 0.10%.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Instructions / How to Use -->
+<div class="instructions">
+  <h5>Is the calculator free & online?</h5>
+<p>Yes! The Forex Spread Calculator is completely free and online. You don’t need to download anything or create an account — simply enter the Ask Price and Bid Price, and it calculates the spread instantly.</p>
+<p>It’s designed for traders of all levels to use quickly, easily, and without cost.</p>
+  <h5>How to use the Forex Spread Calculator</h5>
+  <ul>
+    <li>Add the <strong>Ask Price</strong>. (e.g. 1.0032 or 1.1593)</li>
+    <li>Add the <strong>Bid Price</strong>. (e.g. 1.0095 or 1.5233)</li>
+    <li>The forex spread is calculated automatically.</li>
+  </ul>
+
+  <h5>What is a Forex Spread Calculator?</h5>
+  <p><strong>Forex spread calculator explained:</strong><br>
+  A forex spread calculator is a tool designed to help traders figure out the difference between the bid and the ask price of a currency pair in the forex market.</p>
+  <p>This difference, known as the <strong>spread</strong>, is very important in forex trading, influencing the loss from trades.</p>
+  <p>Calculating the spread can help traders understand if the spread they are trading is high or low, which matters because in the end, the spread is the cost you pay when trading forex.</p>
+
+  <h5>How does it work?</h5>
+  <p>Using the forex spread calculator is straightforward:</p>
+  <ul>
+    <li><strong>Ask Price:</strong> Input the current ask price of the currency pair you’re interested in.</li>
+    <li><strong>Bid Price:</strong> Provide the current bid price for the currency pair.</li>
+    <li><strong>Calculate:</strong> The calculator automatically determines the spread percentage, giving you a clear idea of the cost to enter a trade.</li>
+  </ul>
+
+  <h5>How to Calculate Forex Spread?</h5>
+  <p>The formula to calculate the forex spread is simple:</p>
+  <p><strong>Forex Spread = ((Ask Price – Bid Price) / Ask Price) × 100%</strong></p>
+  <ul>
+    <li><strong>Ask Price:</strong> This is the minimum price that a seller is willing to accept for a currency pair.</li>
+    <li><strong>Bid Price:</strong> This is the maximum price a buyer is ready to pay for the currency pair.</li>
+  </ul>
+</div>
+
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+        <li><a href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+        <li><a href="./forex-risk-calculator.html">Forex Fisk Calculator</a></li>
+        <li><a href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+        <li><a href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+        <li><a href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+  </ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const askInput = document.getElementById('askPrice');
+const bidInput = document.getElementById('bidPrice');
+const output = document.getElementById('spreadOutput');
+
+function calculateSpread() {
+  const ask = parseFloat(askInput.value);
+  const bid = parseFloat(bidInput.value);
+  if (!isNaN(ask) && !isNaN(bid) && ask > 0 && bid > 0) {
+    const spread = ((ask - bid)/ask) * 100;
+    output.textContent = spread.toFixed(2) + '%';
+  } else {
+    output.textContent = '0.00%';
+  }
+}
+
+askInput.addEventListener('input', calculateSpread);
+bidInput.addEventListener('input', calculateSpread);
+</script>
+
+</body>
+</html>
