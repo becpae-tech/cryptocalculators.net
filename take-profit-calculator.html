@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Take Profit Calculator – Free Online Crypto & Forex Profit Target Tool</title>
+<meta name="description" content="Free Take Profit Calculator for crypto, forex, and stock trading. Calculate take profit levels, target prices, and potential profit based on your entry price, position size, and trade type.">
+<meta name="keywords" content="take profit calculator, crypto profit, forex profit, trading calculator, online calculator">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Take Profit Calculator",
+  "url": "https://cryptocalculators.net/take-profit-calculator",
+  "description": "Free Take Profit Calculator for crypto, forex, and stock trading. Calculate take profit levels, target prices, and potential profit based on your entry price, position size, and trade type.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:650px;margin:30px auto;padding:30px;background:#fff;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.1);}
+.calc-box h5 {text-align:center;margin-bottom:25px;font-weight:600;}
+.input-group-custom {margin-bottom:15px;}
+.take-profit-level {margin-bottom:15px;display:flex;align-items:center;gap:10px;}
+.take-profit-level label {font-weight:500;flex:1 1 100%;}
+.take-profit-level input {flex:1;padding:6px 10px;border-radius:6px;border:1px solid #ced4da;}
+.take-profit-level button {flex:0 0 auto;}
+.add-level {margin-top:15px;cursor:pointer;color:#0d6efd;font-weight:500;text-align:center;display:block;}
+#calculateBtn {margin:15px auto;display:block;width:50%;min-width:150px;}
+.results table {width:100%;border-collapse:collapse;margin-top:20px;}
+.results th, .results td {padding:12px;border:1px solid #dee2e6;text-align:center;font-size:0.95rem;}
+.results th {background-color:#f1f3f5;font-weight:600;}
+.results tr:hover {background-color:#e9f2ff;}
+.info {font-size:0.9rem;color:#6c757d;margin-top:20px;}
+.instructions {margin:30px auto;max-width:700px;font-size:16px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.tip {display:flex;align-items:flex-start;background-color:#e9f2ff;padding:15px;border-radius:6px;font-size:16px;color:#333;margin-top:15px;}
+.tip-icon {background-color:#007bff;color:#fff;font-weight:bold;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;margin-right:10px;flex-shrink:0;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+@media (max-width:576px) {
+  .calc-box {padding:20px;}
+  #calculateBtn {width:100%;}
+  .take-profit-level {flex-direction:column;align-items:stretch;}
+  .take-profit-level button {width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Take Profit Calculator</h1>
+    <p>Calculate your take profit levels, target prices, and potential profit for crypto, forex, or stock trades. Add multiple levels to scale out positions.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <h5>Take Profit Calculator</h5>
+
+    <div class="input-group-custom">
+      <label class="form-label">Entry Price</label>
+      <input type="number" id="entryPrice" class="form-control" placeholder="e.g., 1.04534" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Position Value</label>
+      <input type="number" id="positionValue" class="form-control" placeholder="e.g., 1000" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Select Currency</label>
+      <select id="currency" class="form-select">
+        <option value="USD">USD – US Dollar</option>
+        <option value="EUR">EUR – Euro</option>
+        <option value="JPY">JPY – Japanese Yen</option>
+        <option value="GBP">GBP – British Pound</option>
+        <option value="AUD">AUD – Australian Dollar</option>
+        <option value="CAD">CAD – Canadian Dollar</option>
+        <option value="CHF">CHF – Swiss Franc</option>
+        <option value="CNY">CNY – Chinese Yuan</option>
+        <option value="HKD">HKD – Hong Kong Dollar</option>
+        <option value="NZD">NZD – New Zealand Dollar</option>
+      </select>
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Trade Type</label>
+      <select id="tradeType" class="form-select">
+        <option value="long">Long Position</option>
+        <option value="short">Short Position</option>
+      </select>
+    </div>
+
+    <div id="takeProfitLevels"></div>
+    <div class="add-level" id="addLevel">+ Add Take Profit Level</div>
+    <button class="btn btn-primary" id="calculateBtn">Calculate</button>
+
+    <div class="results" id="results"></div>
+
+    <div class="info">
+      Information: The take profit calculator calculates your exit prices and projected outcomes (actual results vary with market conditions) based on your entry price, position size, and profit targets. Add multiple take profit levels to scale out your positions.
+    </div>
+  </div>
+</div>
+
+<!-- Instructions & How It Works -->
+<div class="instructions">
+  <h5>How to use the Take Profit Calculator</h5>
+  <ol>
+    <li>Enter your Entry Price (e.g., $1.04534).</li>
+    <li>Enter your Position Value (e.g., 1000).</li>
+    <li>Select your currency.</li>
+    <li>Choose ‘Long’ or ‘Short’ position.</li>
+    <li>Add one or more Profit Target Levels (%) and click Calculate.</li>
+  </ol>
+
+  <h5>Take Profit Calculator Formula / Calculation</h5>
+  <p>
+    <strong>Long Trade:</strong> Target Price = Entry Price × (1 + Profit Target % / 100)<br>
+    <strong>Short Trade:</strong> Target Price = Entry Price × (1 − Profit Target % / 100)<br>
+    Profit = Position Value × (Profit Target % / 100)
+  </p>
+
+  <h5>Example</h5>
+  <p>Entry Price: 1.00, Position: 1000 USD, Long Trade, Profit Level 5%</p>
+  <p>Target Price = 1 × (1 + 0.05) = 1.05<br>
+     Profit = 1000 × 0.05 = 50 USD</p>
+
+  <h5>Take Profit Calculator FAQ</h5>
+  <h5>❓ Q1: Can I use this calculator for multiple levels?</h5>
+  <ul>
+    <li>A: Yes! You can add as many take profit levels as needed and the calculator will display each target price and profit.</li>
+  </ul>
+  <h5>❓ Q2: Is this calculator free to use?</h5>
+  <ul>
+    <li>A: Yes, it’s completely free and works directly in your browser.</li>
+  </ul>
+  <h5>❓ Q3: Can I use it for crypto and forex trading?</h5>
+  <ul>
+    <li>A: Absolutely, it works for all types of assets including crypto, forex, stocks, and futures.</li>
+  </ul>
+</div>
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+    <li><a href="stop-loss-calculator.html">Stop Loss Calculator</a></li>
+    <li><a href="trading-calculator.html">Trading Calculator</a></li>
+    <li><a href="margin-call-calculator.html">Margin Call Calculator</a></li>
+    <li><a href="cfd-calculator.html">CFD Calculator</a></li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggler = document.querySelector('.navbar-toggler');
+  const menu = document.getElementById('navbarMenu');
+  toggler.addEventListener('click', function() {
+    menu.classList.toggle('show');
+  });
+  addLevel(); // 自动添加Level 1
+});
+
+let levelCount = 0;
+
+function updateLabels() {
+  const levels = document.querySelectorAll('.take-profit-level');
+  levels.forEach((level, index) => {
+    const label = level.querySelector('label');
+    label.innerText = `Profit Target Level ${index + 1} (%)`;
+  });
+}
+
+function addLevel() {
+  levelCount++;
+  const container = document.getElementById('takeProfitLevels');
+  const div = document.createElement('div');
+  div.className = 'take-profit-level';
+  div.innerHTML = `
+    <label>Profit Target Level ${levelCount} (%)</label>
+    <input type="number" step="0.01" placeholder="e.g., 5" />
+    <button class="btn btn-outline-danger btn-sm" onclick="removeLevel(this)">Remove</button>
+  `;
+  container.appendChild(div);
+}
+
+function removeLevel(button) {
+  button.parentElement.remove();
+  updateLabels();
+}
+
+function formatNumber(num, decimals=2) {
+  return num.toLocaleString(undefined,{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+}
+
+function calculate() {
+  const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+  const positionValue = parseFloat(document.getElementById('positionValue').value);
+  const tradeType = document.getElementById('tradeType').value;
+  const currency = document.getElementById('currency').value;
+  const levels = document.querySelectorAll('.take-profit-level input');
+
+  if (!entryPrice || !positionValue) {
+    alert('Please enter Entry Price and Position Value.');
+    return;
+  }
+
+  let html = `<table>
+    <tr>
+      <th>Take Profit %</th>
+      <th>Target Price</th>
+      <th>Profit (${currency})</th>
+      <th>Position Value (${currency})</th>
+    </tr>`;
+
+  levels.forEach(input => {
+    const tpPercent = parseFloat(input.value);
+    if (!tpPercent) return;
+    let targetPrice = tradeType === 'long'
+      ? entryPrice*(1+tpPercent/100)
+      : entryPrice*(1-tpPercent/100);
+    const profit = positionValue*tpPercent/100;
+    html += `<tr>
+      <td>${tpPercent}%</td>
+      <td>${formatNumber(targetPrice,5)}</td>
+      <td>${formatNumber(profit,2)}</td>
+      <td>${formatNumber(positionValue,2)}</td>
+    </tr>`;
+  });
+
+  html += '</table>';
+  document.getElementById('results').innerHTML = html;
+}
+
+document.getElementById('addLevel').addEventListener('click', addLevel);
+document.getElementById('calculateBtn').addEventListener('click', calculate);
+</script>
+
+</body>
+</html>
