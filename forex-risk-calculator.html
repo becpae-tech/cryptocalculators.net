@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex Risk Calculator – Free Online Tool to Calculate Position Size & Total Risk</title>
+<meta name="description" content="Use our free online Forex Risk Calculator to quickly calculate total risk, position size in lots and units. Manage your trades safely and efficiently. Supports multiple account currencies.">
+<meta name="keywords" content="forex risk calculator, position size calculator, trading risk calculator, forex calculator, calculate lot size">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Forex Risk Calculator",
+  "url": "https://cryptocalculators.net/forex-risk-calculator.html",
+  "description": "Use our free online Forex Risk Calculator to quickly calculate total risk, position size in lots and units. Manage your trades safely and efficiently. Supports multiple account currencies.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:700px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;}
+button.btn-calc {width:48%;display:inline-block;}
+.result-row {display:flex;justify-content:space-between;align-items:center;margin-top:15px;}
+.result-box {flex:1;background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin:0 5px;}
+.result-box h6 {font-size:14px;color:#555;margin-bottom:5px;}
+.instructions {margin:30px auto;max-width:700px;font-size:14px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Forex Risk Calculator</h1>
+    <p>Calculate total risk and recommended position size in lots and units for your forex trades. Supports multiple account currencies.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+
+    <div class="row g-3">
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Account Currency</label>
+        <select class="form-select" id="currency">
+          <option>USD</option><option>EUR</option><option>JPY</option><option>GBP</option>
+          <option>AUD</option><option>CAD</option><option>CHF</option><option>CNY</option>
+          <option>SEK</option><option>NZD</option><option>MXN</option><option>SGD</option>
+          <option>HKD</option><option>NOK</option><option>KRW</option><option>TRY</option>
+          <option>RUB</option><option>INR</option><option>BRL</option><option>ZAR</option>
+          <option>DKK</option><option>PLN</option><option>TWD</option><option>THB</option>
+          <option>MYR</option><option>IDR</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Total Capital</label>
+        <input type="number" class="form-control" id="capital" placeholder="Enter total capital" oninput="calculateRisk()">
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Risk Percentage (%)</label>
+        <input type="number" class="form-control" id="riskPercent" placeholder="Enter risk %" oninput="calculateRisk()">
+      </div>
+
+      <div class="col-md-6 input-group-custom">
+        <label class="form-label">Stop Loss (pips)</label>
+        <input type="number" class="form-control" id="stopLoss" placeholder="Enter stop loss" oninput="calculateRisk()">
+      </div>
+    </div>
+
+    <div class="row g-2 mb-3">
+      <div class="col-6">
+        <button class="btn btn-primary btn-calc" onclick="calculateRisk()">Calculate</button>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-secondary btn-calc" onclick="resetRisk()">Reset</button>
+      </div>
+    </div>
+
+    <div class="result-row">
+      <div class="result-box">
+        <h6>Total Risk</h6>
+        <span id="riskAmount">0.00</span>
+      </div>
+      <div class="result-box">
+        <h6>Position Size (Lots)</h6>
+        <span id="positionSizeLots">0.00 Lots</span>
+      </div>
+      <div class="result-box">
+        <h6>Position Size (Units)</h6>
+        <span id="positionSizeUnits">0.00 Units</span>
+      </div>
+    </div>
+
+    <div style="margin-top:15px; font-size:13px; color:#555; text-align:left;">
+      <h5>How to use the forex risk calculator:</h5>
+      <ul>
+        <li>Select your ‘Account Currency’</li>
+        <li>Add your ‘Total Capital’</li>
+        <li>Add your ‘Risk Percentage’</li>
+        <li>Select your ‘Stop Loss (pips)’</li>
+        <li>Click Calculate</li>
+      </ul>
+      <p>The result will show your total forex risk in the account currency you have selected. The calculator will also show you the recommended forex position size in lots and units.</p>
+      <p><strong>Disclaimer:</strong> This calculator is not financial advice and does not account for broker spreads or fluctuations.</p>
+    </div>
+
+  </div>
+</div>
+<!-- How to Use and Info -->
+<div class="instructions" style="max-width:800px;margin:30px auto;text-indent:2em;">
+
+  <h5>How to use the Forex Risk Calculator:</h5>
+  <ul>
+    <li><strong>Select your ‘Account Currency’</strong></li>
+    <li><strong>Add your ‘Total Capital’</strong></li>
+    <li><strong>Add your ‘Risk Percentage’</strong></li>
+    <li><strong>Select your ‘Stop Loss (pips)’</strong></li>
+    <li><strong>Click Calculate</strong></li>
+  </ul>
+  <p>The result will show your total forex risk in the account currency you have selected.</p>
+  <p>The calculator will also show you the recommended forex position size in lots and units.</p>
+  <p><em>Disclaimer:</em> Keep in mind that the calculator is not financial advice and it does not take into consideration the spreads and fluctuations of your forex broker.</p>
+
+  <h5>What is a Forex Risk Calculator?</h5>
+  <p>A forex risk calculator is a tool to effectively manage risk when trading the forex market.</p>
+  <p>Since forex leverage increases the risk substantially, the calculator comes in handy no matter what leverage ratio you choose.</p>
+  <p>The calculator helps you decide the correct position size by recommending the appropriate position size in lots and units and also by showing you the total risk in your currency.</p>
+  <p>It helps you determine how much money to risk per trade relative to your total capital, risk in percentage, and your stop loss level in pips.</p>
+  <p>The forex risk management calculator helps you avoid overexposing yourself to risk on any single trade, which is one of the most important parts of risk management in trading.</p>
+
+  <h5>How to Calculate Forex Risk</h5>
+  <p>Calculating your risk when trading forex is an important step in preparing for a successful trade and minimizing potential loss.</p>
+  <ul>
+    <li><strong>Your total capital:</strong> Begin by assessing how much money you can allocate to each trade.</li>
+    <li><strong>Figure out risk percentage per trade:</strong> Decide what percentage of your total capital you are willing to risk on a single trade (commonly 1-2%).</li>
+    <li><strong>Your stop loss level:</strong> Your stop loss is what will block potential losses. Use the calculator to experiment with different stop loss levels.</li>
+    <li><strong>Calculate the risk in money:</strong> Know how much you are risking per trade. Example: $5000 account, 1% risk → $50 risk per trade.</li>
+    <li><strong>Selecting position size:</strong> Use the calculator to determine the appropriate position size in lots and units. Example: Risk $200 per trade, stop loss 20 pips, pip value $1 → 10 units.</li>
+  </ul>
+
+  <h5>Calculation Formula</h5>
+  <p>The Forex Risk Calculator uses the following formula:</p>
+  <p><strong>Position Size = (Account Size × Risk Percentage) / (Stop Loss in Pips × Pip Value)</strong></p>
+  <p>Explanation:</p>
+  <ul>
+    <li><strong>Account Size:</strong> Total money in your trading account.</li>
+    <li><strong>Risk Percentage:</strong> Portion of total capital to risk per trade.</li>
+    <li><strong>Stop Loss in Pips:</strong> Maximum allowed movement against your trade.</li>
+    <li><strong>Pip Value:</strong> Value of a single pip movement in the currency pair being traded. Varies by currency pair and trade size.</li>
+  </ul>
+  <p>Always be aware of the risks involved with leverage before trading, as forex carries substantial risk.</p>
+
+</div>
+<!-- Other Calculators -->
+<div class="other-calculators">
+<h5>Other Calculators</h5>
+<ul>
+<li><a href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+<li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+<li><a href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+</ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let menuOpen = false;
+function toggleMenu() {
+  const nav = document.getElementById('navbarMenu');
+  if(menuOpen){nav.classList.remove('show'); menuOpen=false;} 
+  else{nav.classList.add('show'); menuOpen=true;}
+}
+
+function calculateRisk() {
+  const capital = +document.getElementById('capital').value || 0;
+  const riskPercent = +document.getElementById('riskPercent').value || 0;
+  const stopLoss = +document.getElementById('stopLoss').value || 0;
+  const currency = document.getElementById('currency').value;
+
+  if(!capital || !riskPercent || !stopLoss) return;
+
+  const riskAmount = capital * riskPercent / 100;
+
+  // 每标准手pip value = $10（USD为例），其他币种简单处理为等值
+  const pipValuePerLot = 10; 
+  const positionLots = riskAmount / (stopLoss * pipValuePerLot);
+  const positionUnits = positionLots * 100000;
+
+  document.getElementById('riskAmount').textContent = currency + ' ' + riskAmount.toFixed(2);
+  document.getElementById('positionSizeUnits').textContent = positionUnits.toFixed(0) + ' Units';
+  document.getElementById('positionSizeLots').textContent = positionLots.toFixed(2) + ' Lots';
+}
+
+function resetRisk() {
+  ['capital','riskPercent','stopLoss'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('currency').value='USD';
+  document.getElementById('riskAmount').textContent = '0.00';
+  document.getElementById('positionSizeUnits').textContent = '0.00 Units';
+  document.getElementById('positionSizeLots').textContent = '0.00 Lots';
+}
+</script>
+
+</body>
+</html>
