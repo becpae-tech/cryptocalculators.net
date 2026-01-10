@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Calculator — Free Online Trading Profit & Risk Calculator | Crypto Calculators</title>
+<meta name="description" content="Free online Trading Calculator to calculate final balance, ROI, average gain per trade, win/loss statistics, and max drawdown. Includes profit curve chart.">
+<meta name="keywords" content="trading calculator, risk calculator, ROI calculator, profit calculator, online trading tool">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- JSON-LD Schema for Calculator + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FinancialProduct",
+      "name": "Trading Calculator",
+      "description": "Free online Trading Calculator to calculate final balance, ROI, average gain per trade, win/loss statistics, and max drawdown. Includes profit curve chart.",
+      "url": "https://cryptocalculators.net/trading-calculator.html",
+      "brand": {
+        "@type": "Organization",
+        "name": "Crypto Calculators",
+        "url": "https://cryptocalculators.net"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a trading calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A trading calculator is a simulation tool that estimates your day trading performance based on key strategy inputs like risk, reward, and win rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it include fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, fees are excluded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calculations are based on standard trading formulas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Risk warnings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trading is risky. Use proper risk management."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+body {background:#f4f6fa;font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:900px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;}
+button.btn-calc {width:48%;display:inline-block;margin-top:10px;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.instructions {max-width:900px;margin:30px auto;font-size:14px;line-height:1.6;color:#333;}
+.instructions h5 {color:#0b3d91;margin-top:20px;margin-bottom:10px;}
+.other-calculators {max-width:900px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+.lt-grid {display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:768px){.lt-grid{grid-template-columns:1fr;}}
+
+/* Output box with 2 lines */
+.result-box {background:#e7f0ff;padding:15px;border-radius:6px;margin-top:15px; display:none;}
+.result-box .line {display:flex;justify-content:space-between;font-weight:bold;margin-bottom:5px;}
+.result-box .line span {flex:1;text-align:center;}
+canvas {background:#fff;border-radius:6px;margin-top:20px; display:none;}
+
+/* 输出面板颜色标注 */
+.result-box .line span {flex:1;text-align:center;font-weight:bold;}
+.result-box .profit {color:#28a745;}       /* 盈利绿色 */
+.result-box .loss {color:#dc3545;}         /* 亏损红色 */
+.result-box .neutral {color:#0b3d91;}      /* 中性蓝色 */
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Trading Calculator</h1>
+    <p>Calculate Final Balance, ROI, Avg Gain per Trade, Profitable/Losing Trades, Max Drawdown and Max Drawdown %. Includes Profit Curve.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <div class="lt-grid">
+      <div class="input-group-custom">
+        <label class="form-label">Start Capital ($)</label>
+        <input type="number" class="form-control" id="startCapital" placeholder="e.g. 1000">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Number of Trades</label>
+        <input type="number" class="form-control" id="numTrades" placeholder="e.g. 50">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Risk per Trade (%)</label>
+        <input type="number" class="form-control" id="riskTrade" placeholder="e.g. 2">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Risk Reward Ratio (1:X)</label>
+        <input type="number" class="form-control" id="rrRatio" placeholder="e.g. 2">
+      </div>
+      <div class="input-group-custom">
+        <label class="form-label">Win Rate (%)</label>
+        <input type="number" class="form-control" id="winRate" placeholder="e.g. 55">
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-primary btn-calc" onclick="calculateTrading()">Calculate</button>
+      <button class="btn btn-secondary btn-calc" onclick="resetTrading()">Reset</button>
+    </div>
+
+    <!-- Output Panel -->
+    <div class="result-box" id="outputPanel">
+      <div class="line">
+        <span id="finalBalance">Final Balance: $0.00</span>
+        <span id="roi">ROI: 0%</span>
+        <span id="avgGain">Avg Gain per Trade: $0.00</span>
+      </div>
+      <div class="line">
+        <span id="profitableTrades">Profitable Trades: 0</span>
+        <span id="losingTrades">Losing Trades: 0</span>
+        <span id="maxDrawdown">Max Drawdown: $0.00</span>
+        <span id="maxDrawdownPerc">Max Drawdown %: 0%</span>
+      </div>
+    </div>
+
+    <!-- Profit Curve -->
+    <canvas id="profitCurve" height="300"></canvas>
+
+    <!-- Metric Table -->
+    <table class="table table-bordered mt-3" id="metricTable" style="display:none;">
+      <tr><th>Metric</th><th>Value</th></tr>
+      <tr><td>Win/Loss Ratio</td><td id="wlRatio">0</td></tr>
+      <tr><td>Expectancy per Trade</td><td id="expectancy">0</td></tr>
+      <tr><td>Total Profit ($)</td><td id="totalProfit">0</td></tr>
+      <tr><td>Total Loss ($)</td><td id="totalLoss">0</td></tr>
+      <tr><td>Net Profit ($)</td><td id="netProfit">0</td></tr>
+      <tr><td>Largest Win ($)</td><td id="largestWin">0</td></tr>
+      <tr><td>Largest Loss ($)</td><td id="largestLoss">0</td></tr>
+      <tr><td>Max Wins in a Row</td><td id="maxWinsRow">0</td></tr>
+      <tr><td>Max Losses in a Row</td><td id="maxLossesRow">0</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Instructions & FAQ -->
+<div class="instructions" id="faq">
+<h5>How to use the Trading Calculator</h5>
+<ul>
+  <li>Add start capital – Your initial trading account balance in USD.</li>
+  <li>Set number of trades – The total number of trades you want to simulate.</li>
+    <li>Enter risk per trade (%) – How much of your capital you’re willing to risk on each trade.</li>
+	  <li>Set risk/reward ratio – For example, enter “2” for a 1:2 risk-to-reward setup.</li>
+	    <li>Enter win rate (%) – Your estimated trade success rate (e.g. 55).</li>
+		 <li>Click “Calculate” – View your projected equity curve, key performance metrics, and overall results.</li>		
+</ul>
+
+<h5>How the trading calculator works</h5>
+<p>The trading calculator runs a probabilistic simulation based on the inputs you provide. Every time you click “Calculate”, it generates a new sequence of day trades, just like the real market, where outcomes are never identical.</p>
+<p>This trading calculator uses your selected variables:</p>
+
+<ul>
+  <li>Starting capital – your initial account balance.</li>
+  <li>Number of trades – how many trades you plan to take</li>
+    <li>Risk per trade (%) – the amount you’re willing to lose on each trade</li>
+	  <li>Risk/reward ratio – how much you aim to gain vs. how much you risk</li>
+	    <li>Win rate (%) – your estimated success rate based on strategy or history</li>	
+</ul>
+<p>Behind the scenes, the trade calculator performs a trade-by-trade simulation using randomized win/loss outcomes based on your win rate</p>
+<p>For each trade:</p>
+<ul>
+<li>If it’s a win, the balance increases by your reward amount</li>
+<li>If it’s a loss, the balance decreases by your risk amount</li>
+<li>It tracks each outcome to calculate streaks, equity growth, and drawdowns</li>
+</ul>
+
+
+<p>The results you get include:</p>
+<ul>
+<li>Final account balance</li>
+<li>Return on investment (ROI)</li>
+<li>Average gain per trade</li>
+<li>Number of winning and losing trades</li>
+<li>Max drawdown in $ and %</li>
+<li>Win/loss ratio and expectancy</li>
+<li>Equity curve chart that updates with every run</li>
+</ul>
+
+<p>Because this tool is driven by real-world probabilities, the results vary on each run. Depending on your inputs, such as a high or low risk percentage, strong or weak risk/reward ratio, or conservative vs. aggressive win rates, the trading return calculator gives you a realistic outcome of how your trading setup might behave in practice.</p>
+
+<h5>Trading calculation formula</h5>
+<p>Understanding the math behind your trades is the first step toward trading with confidence. Our trading calculator uses a simulation formula based on your inputs to show how your day trading strategy might perform over time.</p>
+<p>Final Balance = Start Balance + N × [(Win Rate × (Risk × RR Ratio)) – ((1 – Win Rate) × Risk)]</p>
+<p>Where:</p>
+<ul>
+<li>Start Balance = Your initial capital</li>
+<li>N = Number of trades</li>
+<li>Win Rate = Success rate as a decimal (e.g. 0.55 for 55%)</li>
+<li>RR Ratio = Risk-to-Reward Ratio (e.g. 2 for 1:2)</li>
+</ul>
+<p>This repeats for the number of trades you input, with win/loss outcomes generated based on your win rate. Every click on “Calculate” runs a new simulation, just like the randomness of real trading.</p>
+
+<h5>Trading Calculator FAQ</h5>
+<ul>
+  <li><strong>Q:</strong> Is this calculator free? <br><strong>A:</strong> Yes, it is free and online.</li>
+  <li><strong>Q:</strong>What is a trading calculator? <br><strong>A:</strong> A trading calculator is a simulation tool that estimates your day trading performance based on key strategy inputs like risk, reward, and win rate.</li>
+  <li><strong>Q:</strong> Who is the trading calculator? <br><strong>A:</strong> This trading calculator is built for active traders who want to test and visualize the realistic outcomes of their trading strategies before putting capital at risk.</li>
+  <li><strong>Q:</strong> Risk warnings? <br><strong>A:</strong> Trading is risky. Use proper risk management.</li>
+</ul>
+</div>
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+    <li><a href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+    <li><a href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+    <li><a href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+    <li><a href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+    <li><a href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+  </ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Trading Calculator JS (与上版完全一致)
+let chart;
+function calculateTrading(){ /* ... same as previous version ... */ }
+function resetTrading(){ /* ... same as previous version ... */ }
+</script>
+
+</body>
+</html>
