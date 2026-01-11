@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Financial Spread Betting Calculator – Free Online Profit/Loss Tool</title>
+<meta name="description" content="Use our Financial Spread Betting Calculator to calculate potential profit or loss on trades with various financial instruments including stocks, forex, indices, commodities, and crypto. Free and online tool.">
+<meta name="keywords" content="Financial Spread Betting Calculator, spread betting calculator online, profit loss calculator, financial trading calculator, crypto spread betting, forex spread betting, stock spread betting, free spread betting calculator">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Financial Spread Betting Calculator",
+  "url": "https://cryptocalculators.net/financial-spread-betting-calculator",
+  "description": "Free Financial Spread Betting Calculator to calculate potential profit or loss for stocks, forex, indices, commodities, and crypto trades online.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:480px;margin:30px auto;padding:25px;background:#fff;border-radius:16px;box-shadow:0 12px 24px rgba(0,0,0,.08);}
+.inline-group {display:flex;gap:12px;margin-bottom:20px;}
+.form-group {flex:1;display:flex;flex-direction:column;}
+.form-group label {font-size:14px;font-weight:500;margin-bottom:6px;color:#374151;}
+.form-group input, .form-group select {padding:12px 14px;border-radius:10px;border:1px solid #d1d5db;font-size:16px;color:#111827;outline:none;transition:0.2s;width:100%;}
+.form-group input:focus, .form-group select:focus {border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,0.2);}
+button {width:100%;padding:14px;background-color:#3b82f6;color:#fff;font-size:16px;font-weight:500;border:none;border-radius:10px;cursor:pointer;transition:0.2s;}
+button:hover {background-color:#2563eb;}
+.result-container {margin-top:25px;text-align:center;}
+.result-value {display:block;font-size:24px;font-weight:700;color:#10b981;margin-bottom:6px;}
+.result-label {display:block;font-size:16px;font-weight:500;color:#374151;}
+@media (max-width:500px){.inline-group{flex-direction:column;}}
+.instructions {margin:30px auto;max-width:750px;font-size:16px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.tip {display:flex;align-items:flex-start;background-color:#e9f2ff;padding:15px;border-radius:6px;font-size:16px;color:#333;margin-top:15px;}
+.tip-icon {background-color:#007bff;color:#fff;font-weight:bold;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;margin-right:10px;flex-shrink:0;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="./">Crypto Calculators</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+            <li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Financial Spread Betting Calculator</h1>
+    <p>Calculate potential profit or loss on trades with our free online Financial Spread Betting Calculator. Ideal for crypto, forex, stocks, indices, and commodities.</p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <h2 class="text-center mb-3">Financial Spread Betting Calculator</h2>
+
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="betSize">Bet Size (USD per point)</label>
+        <input type="number" id="betSize" placeholder="e.g. 10">
+      </div>
+      <div class="form-group">
+        <label for="direction">Direction</label>
+        <select id="direction">
+          <option value="long">Long (Buy)</option>
+          <option value="short">Short (Sell)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="openingPrice">Opening Price</label>
+        <input type="number" id="openingPrice" placeholder="e.g. 7250">
+      </div>
+      <div class="form-group">
+        <label for="closingPrice">Closing Price</label>
+        <input type="number" id="closingPrice" placeholder="e.g. 7300">
+      </div>
+    </div>
+
+    <div class="d-grid mb-3">
+      <button class="btn btn-primary" onclick="calculateProfit()">Calculate Profit/Loss</button>
+    </div>
+
+    <div class="result-container">
+      <span class="result-value" id="resultAmount">$0.00</span>
+      <span class="result-label">Profit / Loss</span>
+    </div>
+  </div>
+</div>
+
+<!-- Professional Content -->
+<div class="instructions">
+<h5>What is a Financial Spread Betting Calculator?</h5>
+<p>A Financial Spread Betting Calculator is an online tool that helps traders estimate potential profit or loss on financial spread betting trades. Spread betting allows you to speculate on price movements of various assets without owning the underlying asset. By calculating the impact of your bet size, market direction, and price changes, this calculator helps manage risk and plan trades effectively.</p>
+
+<h5>How the Financial Spread Betting Calculator Works</h5>
+<ul>
+<li><strong>Bet Size:</strong> Amount of money risked per point of price movement.</li>
+<li><strong>Opening Price:</strong> The market price at which your trade starts.</li>
+<li><strong>Closing Price:</strong> The price at which you plan to close the trade.</li>
+<li><strong>Direction:</strong> Choose Long (Buy) if you expect prices to rise, or Short (Sell) if you expect prices to fall.</li>
+<li><strong>Profit/Loss Formula:</strong>
+  <ul>
+    <li>Long: (Closing Price − Opening Price) × Bet Size</li>
+    <li>Short: (Opening Price − Closing Price) × Bet Size</li>
+  </ul>
+</li>
+</ul>
+
+<h5>Benefits of Using a Financial Spread Betting Calculator</h5>
+<ul>
+<li>Instant calculation of potential profit or loss.</li>
+<li>Plan bet sizes to optimize risk management.</li>
+<li>Works across multiple financial instruments: stocks, indices, forex, commodities, and cryptocurrencies.</li>
+<li>Free and online – no download required.</li>
+<li>Helps beginners understand market movements and seasoned traders plan complex trades.</li>
+</ul>
+
+<h5>Key Terms in Financial Spread Betting</h5>
+<ul>
+<li><strong>Spread:</strong> The difference between the buy (offer) and sell (bid) price of an instrument.</li>
+<li><strong>Point:</strong> The smallest unit of price movement in a market.</li>
+<li><strong>Long Position:</strong> Betting on price increase.</li>
+<li><strong>Short Position:</strong> Betting on price decrease.</li>
+<li><strong>Margin:</strong> Not included in this calculator, but required by brokers to open trades.</li>
+</ul>
+
+<h5>How to Use This Calculator</h5>
+<ol>
+<li>Enter your bet size in USD per point.</li>
+<li>Select the trade direction: Long (Buy) or Short (Sell).</li>
+<li>Enter the opening price and expected closing price.</li>
+<li>Click “Calculate Profit/Loss” to see results instantly.</li>
+</ol>
+
+<h5>FAQ – Frequently Asked Questions</h5>
+
+<h5>❓ Is financial spread betting legal?</h5>
+<p>A: Legal in some countries such as the UK and Ireland; restrictions may apply elsewhere. Always check local regulations.</p>
+
+<h5>❓ Can I lose more than my bet?</h5>
+<p>A: In this calculator, your loss is limited to the bet size × price movement. In live trading with leverage, losses can exceed your initial stake.</p>
+
+<h5>❓ Can I use this for crypto or forex?</h5>
+<p>A: Yes, the calculator works for stocks, indices, commodities, forex, and cryptocurrency markets.</p>
+
+<h5>❓ Do I need a broker to trade?</h5>
+<p>A: Yes, financial spread betting requires a licensed broker. This calculator estimates profit/loss only.</p>
+
+<h5>❓ Is this calculator free?</h5>
+<p>A: Yes, fully free, online, and requires no registration.</p>
+
+<h5>Tips for Traders</h5>
+<ul>
+<li>Always estimate potential losses before placing trades.</li>
+<li>Use realistic opening and closing prices to plan your trades.</li>
+<li>Combine this calculator with professional risk management strategies.</li>
+<li>Track market volatility to avoid over-betting on single trades.</li>
+</ul>
+
+<p><em>*Note: Tax treatment depends on your jurisdiction; consult local laws.</em></p>
+</div>
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+<h5>Other Calculators</h5>
+<ul>
+<li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+<li><a href="./position-size-calculator.html">Position Size Calculator</a></li>
+<li><a href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+<li><a href="./trading-calculator.html">Trading Calculator</a></li>
+<li><a href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+<li><a href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+</ul>
+</div>
+
+<!-- Footer -->
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function calculateProfit() {
+  const betSize = parseFloat(document.getElementById('betSize').value);
+  const openingPrice = parseFloat(document.getElementById('openingPrice').value);
+  const closingPrice = parseFloat(document.getElementById('closingPrice').value);
+  const direction = document.getElementById('direction').value;
+
+  if (isNaN(betSize) || isNaN(openingPrice) || isNaN(closingPrice)) {
+    document.getElementById('resultAmount').textContent = "$0.00";
+    return;
+  }
+
+  let profit;
+  if (direction === 'long') {
+    profit = (closingPrice - openingPrice) * betSize;
+  } else {
+    profit = (openingPrice - closingPrice) * betSize;
+  }
+
+  document.getElementById('resultAmount').textContent = "$" + profit.toFixed(2);
+}
+</script>
+
+</body>
+</html>
