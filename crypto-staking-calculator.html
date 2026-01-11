@@ -3,214 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Crypto Staking Calculator Free | Daily, Monthly, Yearly Rewards with Compound Interest</title>
-<meta name="description" content="Free online Crypto Staking Calculator to estimate staking rewards, APY returns, and compound interest earnings daily, monthly, and yearly.">
+<meta name="description" content="Free online Crypto Staking Calculator for crypto enthusiasts to estimate staking rewards, APY returns, and compound interest earnings daily, monthly, and yearly. Maximize your crypto passive income.">
 <meta name="keywords" content="crypto staking calculator, staking rewards calculator, APY calculator, crypto passive income, compound interest calculator">
 
-<link rel="canonical" href="https://cryptocalculators.net/crypto-staking-calculator.html">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Crypto Staking Calculator",
+  "url": "https://cryptocalculators.net/crypto-staking-calculator.html",
+  "description": "Free online Crypto Staking Calculator to estimate staking rewards, APY returns, and compound interest.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Inter', sans-serif;}
-body {background:#f4f6fa;color:#333;}
-a {text-decoration:none;color:inherit;}
-.container {max-width:900px;margin:0 auto;padding:20px;}
-header {background:#1f2a3a;color:#fff;padding:15px 0;position:relative;z-index:100;}
-header .container {display:flex;justify-content:space-between;align-items:center;}
-header .logo {font-size:24px;font-weight:600;color:#fff;}
-nav ul {display:flex;gap:20px;list-style:none;position:relative;}
-nav ul li {position:relative;}
-nav ul li a {color:#fff;font-weight:500;padding:5px 0;display:block;font-size:16px;cursor:pointer;}
-nav ul li ul {position:absolute;top:35px;left:0;background:#1f2a3a;list-style:none;min-width:220px;border-radius:5px;overflow:hidden;z-index:10;display:none;opacity:0;transition:all 0.3s ease;}
-nav ul li:hover > ul {display:block;opacity:1;}
-nav ul li ul li {position:relative;}
-nav ul li ul li a:hover {background:#0f1a2b;}
-nav ul li ul li ul {position:absolute;top:0;left:220px;display:none;opacity:0;transition:all 0.3s ease;}
-nav ul li ul li:hover > ul {display:block;opacity:1;}
-.mobile-toggle {display:none;cursor:pointer;font-size:20px;}
-@media(max-width: 991px){
-  nav ul {flex-direction:column;position:absolute;top:60px;left:0;width:100%;background:#1f2a3a;display:none;}
-  nav ul.show {display:flex;}
-  nav ul li ul {position:relative;top:0;left:0;}
-  nav ul li ul li ul {left:0;}
-  .mobile-toggle {display:block;color:#fff;}
-}
-.banner {background:#0b3d91;color:#fff;text-align:center;padding:60px 20px;margin-bottom:30px;}
-.banner h1 {font-size:36px;margin-bottom:10px;}
-.banner p {font-size:18px;line-height:1.6;}
-.category-title {font-size:28px;color:#0b3d91;margin:40px 0 20px;}
-.tools-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:40px;}
-.tool-card {background:#fff;border-radius:10px;padding:20px;display:flex;flex-direction:column;justify-content:flex-start;box-shadow:none;}
-.tool-card h3 {font-size:20px;margin-bottom:10px;color:#0b3d91;}
-.tool-card p {font-size:16px;margin-bottom:5px;color:#555;}
-.tool-card input, .tool-card select {width:100%;padding:8px;margin:5px 0 10px;border-radius:5px;border:1px solid #ccc;font-size:16px;}
-#compoundHint {font-size:13px;color:#ff6600;margin-bottom:10px;}
-.results-table {width:100%;border-collapse:collapse;margin-top:15px;}
-.results-table th, .results-table td {border:1px solid #ccc;padding:10px;text-align:left;}
-.results-table th {background:#0b3d91;color:#fff;}
-.section-text {background:#fff;border-radius:10px;padding:20px;margin-bottom:40px;box-shadow:none;}
-.section-text h2 {color:#0b3d91;margin-bottom:15px;}
-.section-text p {color:#555;font-size:16px;line-height:1.6;}
-.faq {margin-bottom:40px;}
-.faq h2 {font-size:28px;color:#0b3d91;margin-bottom:20px;}
-.faq-item {background:#fff;border-radius:10px;padding:15px;margin-bottom:10px;cursor:pointer;box-shadow:none;}
-.faq-item h3 {font-size:16px;color:#0b3d91;}
-.faq-item p {display:block;margin-top:5px;color:#555;font-size:16px;}
-.related-calculators {margin-bottom:60px;}
-.related-calculators h2 {font-size:28px;color:#0b3d91;margin-bottom:20px;}
-.related-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.related-card {background:#fff;border-radius:10px;padding:20px;box-shadow:none;transition:all 0.3s;}
-.related-card h3 {color:#0b3d91;margin-bottom:8px;font-size:18px;}
-.related-card p {color:#555;font-size:16px;margin-bottom:10px;}
-.related-card a {color:#0b3d91;text-decoration:underline;}
-.related-card a:hover {color:#ff6600;text-decoration:none;}
-footer {background:#1f2a3a;color:#aaa;padding:30px 0;text-align:center;font-size:16px;}
-footer a {color:#aaa;}
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:700px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;text-center;}
+.result-row {display:flex;justify-content:center;align-items:center;margin-top:20px;flex-wrap:wrap;}
+.result-box {flex:1;background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin:5px;min-width:120px;}
+.result-box h6 {font-size:16px;color:#555;margin-bottom:5px;}
+.tip, .faq-item {display:flex;align-items:flex-start;background-color:#e9f2ff;padding:15px;border-radius:6px;font-size:16px;color:#333;margin-top:15px;}
+.tip-icon, .faq-icon {background-color:#007bff;color:#fff;font-weight:bold;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;margin-right:10px;flex-shrink:0;}
+.faq-content {margin-top:10px;padding-left:36px;font-size:15px;line-height:1.5;color:#333;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+.instructions {margin:30px auto;max-width:700px;font-size:17px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.other-calculators, .related-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5, .related-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul, .related-calculators ul {padding-left:20px;}
+.other-calculators ul li, .related-calculators ul li {margin-bottom:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
 </style>
 </head>
 <body>
 
-<header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <div class="logo"><a href="./"><img src="./logo.png" alt="Crypto Calculator" width="300" height="50"></a></div>
-    <div class="mobile-toggle"><i class="fa fa-bars"></i></div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li>
-          <a>Calculators <i class="fa fa-caret-down"></i></a>
-          <ul>
-            <li>
-              <a>Crypto Calculator</a>
-              <ul>
-                <li><a href="crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
-                <li><a href="crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
-                <li><a href="crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
-                <li><a href="crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
-                <li><a href="funding-rate-calculator.html">Funding Rate Calculator</a></li>
-                <li><a href="crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
-                <li><a href="liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
-                <li><a href="crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+    <a class="navbar-brand fw-bold" href="./"><img src="./logo.png" alt="Crypto Calculators Logo" width="300" height="50" loading="lazy"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
               </ul>
             </li>
-            <li><a href="math-calculators.html">Math Calculators</a></li>
-            <li><a href="financial-calculators.html">Financial Calculators</a></li>
-          </ul>
-        </li>
-        <li>
-          <a>Education <i class="fa fa-caret-down"></i></a>
-          <ul>
-            <li><a href="beginner-guides.html">Beginner Guides</a></li>
-            <li><a href="advanced-strategies.html">Advanced Strategies</a></li>
-          </ul>
-        </li>
-        <li><a href="#analysis">Analysis</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li>
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
 
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
 <section class="banner">
-  <h1>Crypto Staking calculator – APY%</h1>
-  <p>Use our crypto staking calculator to figure out your APY yield based on your initial investment, APY %, and the staking time in years.</p>
+  <div class="container">
+    <h1>Crypto Staking Calculator</h1>
+    <p>Use our crypto staking calculator to figure out your APY yield based on your initial investment, APY %, and the staking time in years.</p>
+  </div>
 </section>
 
-<section class="container">
-  <h2 class="category-title">Crypto Staking Rewards Calculator with Compound Interest</h2>
-  <div class="tools-grid">
-    <div class="tool-card">
-      <h3>Enter Staking Details</h3>
-      <p>Staking Amount</p>
-      <input type="number" id="stakeAmount" placeholder="e.g. 1000">
-      <p>Token Price (USD)</p>
-      <input type="number" id="tokenPrice" placeholder="e.g. 2.5">
-      <p>Annual APY (%)</p>
-      <input type="number" id="apy" placeholder="e.g. 12">
-      <p>Staking Duration (Days)</p>
-      <input type="number" id="days" placeholder="e.g. 365">
-      <p>Compound Frequency</p>
-      <select id="compoundFreq">
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <h5 class="text-center">Enter Staking Details</h5>
+
+    <div class="input-group-custom">
+      <label class="form-label">Staking Amount</label>
+      <input type="number" id="stakeAmount" class="form-control" placeholder="e.g. 1000" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Token Price (USD)</label>
+      <input type="number" id="tokenPrice" class="form-control" placeholder="e.g. 2.5" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Annual APY (%)</label>
+      <input type="number" id="apy" class="form-control" placeholder="e.g. 12" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Staking Duration (Days)</label>
+      <input type="number" id="days" class="form-control" placeholder="e.g. 365" step="any">
+    </div>
+
+    <div class="input-group-custom">
+      <label class="form-label">Compound Frequency</label>
+      <select id="compoundFreq" class="form-select">
         <option value="1">Daily</option>
         <option value="30">Monthly</option>
         <option value="365">Yearly</option>
       </select>
-      <p id="compoundHint">Daily compounding maximizes your reward growth each day.</p>
-	  <p>Information: The apy crypto calculator will automatically calculate the potential crypto staking yield when you add your initial investment, the APY%, and the staking time in years. Yields are never guaranteed even if calculated in advance.</p>
-	  
     </div>
 
-    <div class="tool-card">
-      <h3>Estimated Rewards</h3>
-      <p><strong>Total Reward Tokens:</strong> <span id="rewardTokens">–</span></p>
-      <p><strong>Total Value (USD):</strong> <span id="rewardUsd">–</span></p>
-      <p><strong>Total Value After Staking:</strong> <span id="totalValue">–</span></p>
-      <table class="results-table">
-        <tr><th>Period</th><th>Reward Tokens</th><th>Reward Value (USD)</th></tr>
-        <tr><td>Daily</td><td id="dailyTokens">–</td><td id="dailyUsd">–</td></tr>
-        <tr><td>Monthly</td><td id="monthlyTokens">–</td><td id="monthlyUsd">–</td></tr>
-        <tr><td>Yearly</td><td id="yearlyTokens">–</td><td id="yearlyUsd">–</td></tr>
-      </table>
+    <div class="result-row">
+      <div class="result-box">
+        <h6>Total Reward Tokens</h6>
+        <span id="rewardTokens">–</span>
+      </div>
+      <div class="result-box">
+        <h6>Total Value (USD)</h6>
+        <span id="rewardUsd">–</span>
+      </div>
+      <div class="result-box">
+        <h6>Total Value After Staking</h6>
+        <span id="totalValue">–</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">i</div>
+      <div>The APY crypto calculator will automatically calculate the potential crypto staking yield based on your inputs. Rewards are estimates and not guaranteed.</div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="container related-calculators" id="related">
-  <h2>Related Crypto Calculators</h2>
-  <div class="related-grid" id="relatedGrid"></div>
-</section>
+<!-- Instructions -->
+<div class="instructions">
+  <h5>How to use Crypto Staking Calculator</h5>
+  <ul>
+    <li>Enter your staking amount and token price.</li>
+    <li>Input the annual APY and staking duration in days.</li>
+    <li>Select the compound frequency (daily, monthly, yearly).</li>
+    <li>See your estimated rewards in the result boxes above.</li>
+  </ul>
 
-<section class="container section-text">
-  <h2>What is a crypto staking calculator?</h2>
-  <p>A crypto staking calculator helps investors estimate rewards from staking crypto tokens. Staking involves locking your tokens to support blockchain operations and earn rewards. With compound interest, your rewards grow faster, depending on the frequency of compounding (daily, monthly, yearly). This tool calculates estimated daily, monthly, and yearly earnings with optional compounding.</p>
-  <p>A crypto staking calculator is a tool used by crypto investors to figure out the potential APY of staking a cryptocurrency based on the initial investment amount, the APY %, and the staking time in years.</p>
-  <p>Staking is the process of locking up a number of cryptocurrencies over a preset time in return for a percentage yield.</p>
-  <p>It calculates the estimated APY over a certain period of time and is commonly used by investors who are using Proof-of-Stake blockchains, yield farming systems, or other staking contracts on a crypto exchange.</p>
-  <p>We use it extensively when we want to calculate the estimated yield over a time period or when we compare different investments to see their risk-to-reward ratio.</p>
-  
-</section>
+  <h5>What is a Crypto Staking Calculator?</h5>
+  <p>A tool that estimates crypto staking rewards using APY and compounding formulas, showing daily, monthly, and yearly potential earnings.</p>
 
-<section class="container faq" id="faq">
-  <h2>Crypto Staking FAQ</h2>
-  <div class="faq-item"><h3>Why use this type of calculator?</h3><p>One of the main reasons why investors would use an APY calculator when staking crypto is to estimate their potential return which can be used when investing long-term with leverage.</p></div>
-  <div class="faq-item"><h3>How does the calculator work?</h3><p>Our APY crypto staking calculator operates by taking into consideration three primary inputs:</p>
-     <p>Initial investment</p>
-     <p>Annual Percentage Yield (APY%)</p>
-     <p>Staking duration in years</p>
-  <p>It works much like a compound interest calculator in traditional finance and uses a similar formula but the APY crypto calculator does not have the option to add additional contributions which are not common in crypto staking.</p>
+  <h5>Formula / Calculation</h5>
+  <p><strong>Total Reward = Stake × ((1 + APY / 100 ÷ Compounding Frequency)^(Compounding Frequency × Years) − 1)</strong></p>
+</div>
+
+<!-- FAQ (Always Expanded) -->
+<div class="faq-container my-4" style="max-width:800px;margin:0 auto;">
+  <h5>Crypto Staking FAQ</h5>
+
+  <div class="faq-item">
+    <div class="faq-icon">?</div>
+    <div>Why use this type of calculator?</div>
   </div>
-  <div class="faq-item"><h3>How does APY affect staking rewards?</h3><p>APY shows estimated yearly returns including compounding; higher APY means more rewards.</p></div>
-  <div class="faq-item"><h3>Is staking profitable?</h3><p>Profitability depends on APY, token price changes, and lock-up periods.</p></div>
-</section>
+  <div class="faq-content">
+    One of the main reasons why investors would use an APY calculator when staking crypto is to estimate their potential return which can be used when investing long-term with leverage.
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-icon">?</div>
+    <div>How does the calculator work?</div>
+  </div>
+  <div class="faq-content">
+    Our APY crypto staking calculator takes three primary inputs: initial investment, APY %, and staking duration. It calculates compound rewards similar to a traditional finance compound interest calculator.
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-icon">?</div>
+    <div>How does APY affect staking rewards?</div>
+  </div>
+  <div class="faq-content">
+    APY represents yearly returns including compounding; higher APY leads to more rewards.
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-icon">?</div>
+    <div>Is staking profitable?</div>
+  </div>
+  <div class="faq-content">
+    Profitability depends on APY, token price changes, and lock-up periods.
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-icon">?</div>
+    <div>How much can I earn by staking crypto?</div>
+  </div>
+  <div class="faq-content">
+    The calculator estimates rewards based on your stake, APY, and duration. Actual returns depend on market conditions and token price.
+  </div>
+</div>
 
 
+<!-- Related Crypto Calculators -->
+<div class="related-calculators">
+  <h5>Related Crypto Calculators</h5>
+  <ul>
+    <li><a href="./crypto-daily-rewards.html">Crypto Daily Rewards</a></li>
+    <li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+    <li><a href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+    <li><a href="./crypto-apy-calculator.html">Crypto APY Calculator</a></li>
+    <li><a href="./crypto-staking-profit-calculator.html">Crypto Staking Profit Calculator</a></li>
+    <li><a href="./crypto-compound-interest-calculator.html">Crypto Compound Interest Calculator</a></li>
+  </ul>
+</div>
 
+<!-- Footer -->
 <footer>
-  <div class="container">
-    <p>Cryptocalculators.net provides free online calculators for crypto, finance, and math. 100% free, no registration required.</p>
-    <p>© 2026 Free Crypto Calculator. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-  </div>
+&copy; 2026 Crypto Calculators. All rights reserved.
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Mobile menu toggle
-document.querySelector('.mobile-toggle').addEventListener('click', function(){
-  document.querySelector('nav ul').classList.toggle('show');
-});
-
-// Staking Calculator
+// Calculator logic
 function calculateStaking(){
   let amount = parseFloat(document.getElementById('stakeAmount').value) || 0;
   let price = parseFloat(document.getElementById('tokenPrice').value) || 0;
   let apy = parseFloat(document.getElementById('apy').value) || 0;
   let days = parseFloat(document.getElementById('days').value) || 0;
   let freq = parseFloat(document.getElementById('compoundFreq').value);
-
-  let hint = document.getElementById('compoundHint');
-  if(freq==1) hint.innerText = "Daily compounding maximizes your reward growth each day.";
-  else if(freq==30) hint.innerText = "Monthly compounding grows your rewards steadily each month.";
-  else hint.innerText = "Yearly compounding calculates rewards once per year.";
 
   let periods = days / (365/freq);
   let rate = apy/100 / freq;
@@ -221,75 +294,13 @@ function calculateStaking(){
   document.getElementById('rewardTokens').innerText = totalTokens.toFixed(4);
   document.getElementById('rewardUsd').innerText = '$'+totalUsd.toFixed(2);
   document.getElementById('totalValue').innerText = '$'+totalValue.toFixed(2);
-
-  let dailyTokens = totalTokens / days;
-  let monthlyTokens = totalTokens / (days/30.4375);
-  let yearlyTokens = totalTokens / (days/365);
-
-  document.getElementById('dailyTokens').innerText = dailyTokens.toFixed(4);
-  document.getElementById('monthlyTokens').innerText = monthlyTokens.toFixed(4);
-  document.getElementById('yearlyTokens').innerText = yearlyTokens.toFixed(4);
-
-  document.getElementById('dailyUsd').innerText = '$'+(dailyTokens*price).toFixed(2);
-  document.getElementById('monthlyUsd').innerText = '$'+(monthlyTokens*price).toFixed(2);
-  document.getElementById('yearlyUsd').innerText = '$'+(yearlyTokens*price).toFixed(2);
-
-  updateRelated(freq);
 }
 
 ['stakeAmount','tokenPrice','apy','days','compoundFreq'].forEach(id => {
   document.getElementById(id).addEventListener('input', calculateStaking);
 });
 document.getElementById('compoundFreq').addEventListener('change', calculateStaking);
-
-// Optimized Related Calculators
-const relatedCalculators = {
-  1: [
-    {name:"Crypto Daily Rewards", desc:"Estimate daily staking rewards quickly", link:"crypto-daily-rewards.html"},
-    {name:"Crypto Profit Calculator", desc:"Calculate potential crypto profits", link:"crypto-profit-calculator.html"},
-    {name:"Crypto Position Size", desc:"Determine your position size", link:"crypto-position-size-calculator.html"},
-    {name:"Crypto APY Calculator", desc:"Calculate crypto annual yield", link:"crypto-apy-calculator.html"}
-  ],
-  30: [
-    {name:"Monthly Staking Returns", desc:"Estimate monthly staking rewards", link:"crypto-monthly-rewards.html"},
-    {name:"Crypto APY Calculator", desc:"Calculate crypto annual yield", link:"crypto-apy-calculator.html"},
-    {name:"Crypto Profit Calculator", desc:"Calculate potential crypto profits", link:"crypto-profit-calculator.html"}
-  ],
-  365: [
-    {name:"Yearly Staking Returns", desc:"Estimate yearly staking rewards", link:"crypto-yearly-rewards.html"},
-    {name:"Crypto APY Calculator", desc:"Calculate crypto annual yield", link:"crypto-apy-calculator.html"},
-    {name:"Crypto Market Cap", desc:"Calculate token market capitalization", link:"crypto-market-cap-calculator.html"}
-  ]
-};
-
-function updateRelated(freq){
-  const grid = document.getElementById('relatedGrid');
-  grid.innerHTML = '';
-  // 自动取前三个最相关
-  relatedCalculators[freq].slice(0,3).forEach(calc => {
-    const card = document.createElement('div');
-    card.className = 'related-card';
-    card.innerHTML = `<h3>${calc.name}</h3><p>${calc.desc}</p><a href="${calc.link}">Try calculator →</a>`;
-    grid.appendChild(card);
-  });
-}
-
-// Initialize
 calculateStaking();
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
-    {"@type":"SoftwareApplication","name":"Crypto Staking Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"What is crypto staking?","acceptedAnswer":{"@type":"Answer","text":"Crypto staking involves locking tokens to support blockchain security and earn rewards."}},
-      {"@type":"Question","name":"How does APY affect staking rewards?","acceptedAnswer":{"@type":"Answer","text":"APY shows estimated yearly returns including compounding; higher APY means more rewards."}},
-      {"@type":"Question","name":"Is staking profitable?","acceptedAnswer":{"@type":"Answer","text":"Profitability depends on APY, token price changes, and lock-up periods."}}
-    ]}
-  ]
-}
 </script>
 
 </body>
