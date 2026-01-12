@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Price Calculator – BTC to USD Calculator & Live Crypto Converter</title>
+<meta name="description" content="Use our Bitcoin Price Calculator and BTC to USD calculator to instantly convert USD to BTC, ETH, SOL, BNB. Free online crypto converter with live prices and accurate crypto calculations.">
+<meta name="keywords" content="Bitcoin Price Calculator, BTC to USD calculator, BTC to USD, ETH to USD, SOL to USD, BNB to USD, Live Crypto Converter, Cryptocurrency Calculator, free crypto calculator, online crypto converter">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Bitcoin Price Calculator",
+  "url": "https://cryptocalculators.net/bitcoin-price-calculator.html",
+  "description": "Use our Bitcoin Price Calculator and BTC to USD calculator to convert USD to BTC, ETH, SOL, BNB instantly. Live cryptocurrency prices, easy to use, and free online calculator.",
+  "brand": "Crypto Calculators",
+  "category": "Calculator"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {background:#f4f6fa; font-family:Arial,sans-serif;}
+.navbar-dark .navbar-nav .nav-link {color:#fff;}
+.navbar-dark .navbar-nav .nav-link:hover {color:#ffc107;}
+.calc-box {max-width:480px;margin:30px auto;padding:25px;background:#fff;border-radius:10px;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+.input-group-custom {margin-bottom:15px;text-center;}
+button.btn-calc {width:48%;display:inline-block;}
+.result-row {display:flex;justify-content:center;align-items:center;margin-top:20px;}
+.result-box {flex:1;background:#e7f0ff;padding:15px;border-radius:6px;text-align:center;margin:0 5px;}
+.result-box h6 {font-size:16px;color:#555;margin-bottom:5px;}
+.instructions {margin:30px auto;max-width:700px;font-size:16px;color:#333;line-height:1.6;}
+.instructions h5 {margin-top:20px;margin-bottom:10px;color:#0b3d91;}
+.tip {display:flex;align-items:flex-start;background-color:#e9f2ff;padding:15px;border-radius:6px;font-size:16px;color:#333;margin-top:15px;}
+.tip-icon {background-color:#007bff;color:#fff;font-weight:bold;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;margin-right:10px;flex-shrink:0;}
+.banner {background:#0b3d91;color:#fff;padding:40px 0;text-align:center;margin-bottom:20px;border-radius:8px;}
+footer {background:#000;color:#fff;padding:20px 0;text-align:center;margin-top:40px;}
+a {color:#0b3d91;text-decoration:none;}
+a:hover {text-decoration:underline;}
+.other-calculators {max-width:700px;margin:40px auto;text-align:left;}
+.other-calculators h5 {margin-bottom:15px;color:#0b3d91;}
+.other-calculators ul {padding-left:20px;}
+.other-calculators ul li {margin-bottom:8px;}
+.currency {display:flex;align-items:center;gap:6px;font-weight:600;}
+.currency img {width:24px;height:24px;}
+.calc-input-row {display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;}
+.calc-input-row input {width:60%;padding:6px;font-size:18px;}
+.result-value {font-size:22px;font-weight:700;cursor:pointer;}
+.accordion-button:not(.collapsed) {color:#0b3d91;background-color:#e7f0ff;}
+.faq-container {max-width:700px;margin:40px auto;}
+/* Dropdown submenu */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu { top:0; left:100%; margin-left:0.1rem; display:none; position:absolute; }
+.dropdown-submenu:hover > .dropdown-menu { display:block; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="https://cryptocalculators.net/"><img src="./logo.png" alt="Crypto Calculators Logo" width="300" height="50" loading="lazy"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Calculators</a>
+          <ul class="dropdown-menu">
+		   <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Trading Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./trading-calculator.html">Trading Calculator</a></li>
+                <li><a class="dropdown-item" href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./stop-loss-calculator.html">Stop Loss Calculator</a></li>
+                <li><a class="dropdown-item" href="./risk-reward-ratio-calculator.html">Risk Reward Ratio Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Crypto Calculators</a>
+              <ul class="dropdown-menu">
+			    <li><a class="dropdown-item" href="./bitcoin-price-alculator.html">Bitcoin Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-staking-calculator.html">Crypto Staking Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-market-cap-calculator.html">Crypto Market Cap Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-average-price-calculator.html">Crypto Average Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+                <li><a class="dropdown-item" href="./funding-rate-calculator.html">Funding Rate Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-futures-calculator.html">Crypto Futures Calculator</a></li>
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>
+                <li><a class="dropdown-item" href="./crypto-position-size-calculator.html">Crypto Position Size Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Forex & Stocks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./forex-compounding-calculator.html">Forex Compounding Calculator</a></li>
+                <li><a class="dropdown-item" href="./stock-profit-investment-calculator.html">Stock Profit & Investment Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-risk-calculator.html">Forex Risk Calculator</a></li>
+                <li><a class="dropdown-item" href="./average-down-stock-calculator.html">Average Down Stock Calculator</a></li>
+                <li><a class="dropdown-item" href="./forex-spread-calculator.html">Forex Spread Calculator</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Leverage & Risk Calculator</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./leverage-calculator.html">Leverage Calculator</a></li> 
+                <li><a class="dropdown-item" href="./liquidation-price-calculator.html">Liquidation Price Calculator</a></li>     							
+                <li><a class="dropdown-item" href="./margin-call-calculator.html">Margin Call Calculator</a></li>
+                <li><a class="dropdown-item" href="./cfd-calculator.html">CFD Calculator</a></li>             
+                <li><a class="dropdown-item" href="./short-selling-calculator.html">Short Selling Calculator</a></li>
+                <li><a class="dropdown-item" href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+              </ul>
+            </li>
+			<li><a class="dropdown-item" href="scientific-calculators.html">Scientific Calculators</a></li>
+            <li><a class="dropdown-item" href="math-calculators.html">Math Calculators</a></li>
+            <li><a class="dropdown-item" href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a class="dropdown-item" href="time-and-date-calculators.html">Time and Date Calculators</a></li>
+            <li><a class="dropdown-item" href="business-calculators.html">Business Calculators</a></li>
+            <li><a class="dropdown-item" href="statistics-calculators.html">Statistics Calculators</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Education</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./beginner-guides.html">Beginner Guides</a></li>
+            <li><a class="dropdown-item" href="./advanced-strategies.html">Advanced Strategies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#analysis">Analysis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reviews</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tool Reviews</a></li>
+            <li><a class="dropdown-item" href="#">Platform Reviews</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+  <div class="container">
+    <h1>Bitcoin Price Calculator</h1>
+    <p><p>Quickly convert USD to BTC, ETH, SOL, or BNB with our free Bitcoin Price Calculator – live rates updated every 30 seconds.</p></p>
+  </div>
+</section>
+
+<!-- Calculator -->
+<div class="container">
+  <div class="calc-box">
+    <h5 class="text-center">Convert USD to Cryptocurrency</h5>
+
+    <div class="input-group-custom">
+      <label class="form-label">Select Cryptocurrency</label>
+      <select id="cryptoSelect" class="form-select">
+        <option value="bitcoin" selected>BTC</option>
+        <option value="ethereum">ETH</option>
+        <option value="solana">SOL</option>
+        <option value="binancecoin">BNB</option>
+      </select>
+    </div>
+
+    <div class="input-group-custom calc-input-row">
+      <input type="number" id="amountInput" placeholder="0.00" step="any">
+      <div class="currency">
+        <img id="currencyIcon" src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png">
+        <span id="currencyLabel">USD</span>
+      </div>
+    </div>
+
+    <div class="input-group-custom calc-input-row">
+      <input type="number" id="cryptoOutput" placeholder="0.00000000" step="any">
+      <div class="currency">
+        <img id="cryptoIcon" src="https://cryptologos.cc/logos/bitcoin-btc-logo.png">
+        <span id="cryptoLabel">BTC</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">i</div>
+      <div>Click on the crypto amount to switch conversion direction (USD ↔ Crypto).</div>
+    </div>
+
+    <div class="rate-info text-center mt-2">
+      Rates refresh every 30 seconds<br>
+      <strong>1 <span id="rateLabel">BTC</span> = <span id="cryptoRate">--</span> USD</strong>
+    </div>
+  </div>
+</div>
+
+<!-- Instructions -->
+<div class="instructions">
+<h5>About Bitcoin Price Calculator</h5>
+<p>The <strong>Bitcoin Price Calculator</strong> is a free online tool that helps you instantly convert USD to Bitcoin (BTC) and other major cryptocurrencies such as Ethereum (ETH), Solana (SOL), and Binance Coin (BNB). It uses real-time market data to ensure accurate conversion rates.</p>
+
+<h5>How to Use</h5>
+<ul>
+<li>Select the cryptocurrency you want to convert from the dropdown menu.</li>
+<li>Enter the amount in USD or cryptocurrency; the other field updates automatically.</li>
+<li>Click on the crypto amount to switch the conversion direction (USD ↔ Crypto).</li>
+<li>Prices are updated every 30 seconds using live market data from CoinGecko API.</li>
+</ul>
+
+<h5>Why Use a Bitcoin Price Calculator?</h5>
+<ul>
+<li>Quickly check how much BTC or other crypto you can buy with a specific USD amount.</li>
+<li>Compare real-time prices without visiting multiple exchanges.</li>
+<li>Plan your trades, investments, or portfolio management with ease.</li>
+</ul>
+
+<h5>Advanced Crypto Knowledge</h5>
+<ul>
+<li><strong>Transaction Fees:</strong> Converting crypto through exchanges may incur network or platform fees. This calculator does not include fees; always check the exchange before trading.</li>
+<li><strong>Price Spread:</strong> Different exchanges may have slightly different prices due to market liquidity. Use the calculator for reference, but live exchange prices may vary.</li>
+<li><strong>Investment Tips:</strong> Only invest what you can afford to lose. Diversify your portfolio and consider market volatility before trading.</li>
+<li><strong>Security:</strong> Keep your wallets and private keys secure. Do not share sensitive information online.</li>
+</ul>
+</div>
+
+<!-- FAQ -->
+<div class="faq-container">
+<h5>Bitcoin Price Calculator & BTC to USD Calculator FAQ</h5>
+<div class="accordion" id="faqAccordion">
+
+<!-- 14 FAQ items start -->
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">What is a Bitcoin Price Calculator?</button>
+</h2>
+<div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+<div class="accordion-body">A Bitcoin Price Calculator is an online tool that converts between USD and cryptocurrencies like BTC, ETH, SOL, and BNB in real-time.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading2">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false">How accurate are the conversion rates?</button>
+</h2>
+<div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Rates are fetched every 30 seconds from CoinGecko API and reflect live market prices. However, actual trading prices may vary slightly on different exchanges.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading3">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false">Can I convert other cryptocurrencies?</button>
+</h2>
+<div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, this calculator supports Bitcoin (BTC), Ethereum (ETH), Solana (SOL), and Binance Coin (BNB). Select your preferred cryptocurrency from the dropdown menu.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading4">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false">Is this calculator free to use?</button>
+</h2>
+<div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Absolutely. The Bitcoin Price Calculator is completely free and requires no registration.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading5">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false">Does it account for trading fees?</button>
+</h2>
+<div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">No, this calculator shows raw conversion rates. Always check your exchange platform for network or trading fees before making transactions.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading6">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false">Can I rely on this for investment decisions?</button>
+</h2>
+<div id="faqCollapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">This calculator is for reference only. Cryptocurrency prices are volatile, and investment decisions should consider risk, liquidity, and portfolio diversification.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading7">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse7" aria-expanded="false">Does it support BTC to USD calculations?</button>
+</h2>
+<div id="faqCollapse7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, the BTC to USD calculator is fully integrated and updates automatically with live prices.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading8">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse8" aria-expanded="false">How often are the prices updated?</button>
+</h2>
+<div id="faqCollapse8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Prices are updated every 30 seconds using live market data from CoinGecko API.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading9">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse9" aria-expanded="false">Can I switch between USD to Crypto and Crypto to USD?</button>
+</h2>
+<div id="faqCollapse9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, click on the crypto amount field to toggle between USD to Crypto and Crypto to USD conversion.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading10">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse10" aria-expanded="false">Is it mobile-friendly?</button>
+</h2>
+<div id="faqCollapse10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, the Bitcoin Price Calculator is responsive and works on desktops, tablets, and mobile devices.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading11">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse11" aria-expanded="false">Can I calculate multiple cryptocurrencies at once?</button>
+</h2>
+<div id="faqCollapse11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Currently, you can select one cryptocurrency at a time, but switching between currencies is fast and easy.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading12">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse12" aria-expanded="false">Are the calculations safe to use?</button>
+</h2>
+<div id="faqCollapse12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, the calculator runs locally in your browser and does not store any personal data.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading13">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse13" aria-expanded="false">Can I use it for trading on exchanges?</button>
+</h2>
+<div id="faqCollapse13" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">Yes, it can be used to reference live prices and calculate approximate amounts before executing trades on exchanges.</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="faqHeading14">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse14" aria-expanded="false">Does it help me track my crypto investments?</button>
+</h2>
+<div id="faqCollapse14" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">While it doesn't store your portfolio, it allows you to quickly convert USD to crypto and vice versa, helping you manage trades and investment decisions.</div>
+</div>
+</div>
+<!-- 14 FAQ items end -->
+
+</div>
+</div>
+
+<!-- Other Calculators -->
+<div class="other-calculators">
+  <h5>Other Calculators</h5>
+  <ul>
+    <li><a href="./crypto-Staking-calculator.html">Crypto Staking Calculator</a></li>
+    <li><a href="./take-profit-calculator.html">Take Profit Calculator</a></li>
+    <li><a href="./spread-betting-calculator.html">Spread Betting Calculator</a></li>
+    <li><a href="./crypto-profit-calculator.html">Crypto Profit Calculator</a></li>
+  </ul>
+</div>
+
+<footer>
+&copy; 2026 Crypto Calculators. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let cryptoPrice = 0;
+let isUsdToCrypto = true;
+const cryptoIcons = { bitcoin: "https://cryptologos.cc/logos/bitcoin-btc-logo.png", ethereum: "https://cryptologos.cc/logos/ethereum-eth-logo.png", solana: "https://cryptologos.cc/logos/solana-sol-logo.png", binancecoin: "https://cryptologos.cc/logos/binance-coin-bnb-logo.png" };
+const cryptoLabels = { bitcoin:"BTC", ethereum:"ETH", solana:"SOL", binancecoin:"BNB" };
+
+function updateCryptoDisplay(){
+  const crypto = document.getElementById("cryptoSelect").value;
+  if(isUsdToCrypto){
+    document.getElementById("currencyLabel").innerText="USD";
+    document.getElementById("currencyIcon").src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png";
+    document.getElementById("cryptoLabel").innerText=cryptoLabels[crypto];
+    document.getElementById("cryptoIcon").src=cryptoIcons[crypto];
+  } else {
+    document.getElementById("cryptoLabel").innerText="USD";
+    document.getElementById("cryptoIcon").src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png";
+    document.getElementById("currencyLabel").innerText=cryptoLabels[crypto];
+    document.getElementById("currencyIcon").src=cryptoIcons[crypto];
+  }
+  document.getElementById("rateLabel").innerText=cryptoLabels[crypto];
+}
+
+async function fetchCryptoPrice(){
+  const crypto = document.getElementById("cryptoSelect").value;
+  try{
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`);
+    const data = await res.json();
+    cryptoPrice = data[crypto].usd;
+    document.getElementById("cryptoRate").innerText = cryptoPrice.toLocaleString();
+    updateOutput();
+  }catch(e){ document.getElementById("cryptoRate").innerText = "Error"; }
+}
+
+function updateOutput(){
+  const amountInput = parseFloat(document.getElementById("amountInput").value)||0;
+  const cryptoOutput = parseFloat(document.getElementById("cryptoOutput").value)||0;
+  if(isUsdToCrypto){
+    document.getElementById("cryptoOutput").value = (amountInput/cryptoPrice).toFixed(8);
+  } else {
+    document.getElementById("amountInput").value = (cryptoOutput*cryptoPrice).toFixed(4);
+  }
+}
+
+document.getElementById("amountInput").addEventListener("input", ()=>{ isUsdToCrypto=true; updateCryptoDisplay(); updateOutput(); });
+document.getElementById("cryptoOutput").addEventListener("input", ()=>{ isUsdToCrypto=false; updateCryptoDisplay(); updateOutput(); });
+document.getElementById("cryptoSelect").addEventListener("change", ()=>{ updateCryptoDisplay(); fetchCryptoPrice(); });
+document.getElementById("cryptoOutput").addEventListener("click", ()=>{ isUsdToCrypto=!isUsdToCrypto; updateCryptoDisplay(); updateOutput(); });
+
+updateCryptoDisplay();
+fetchCryptoPrice();
+setInterval(fetchCryptoPrice,30000);
+</script>
+</body>
+</html>
