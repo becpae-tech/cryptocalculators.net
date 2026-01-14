@@ -278,4 +278,32 @@ function updateCryptoDisplay(){
   fetchCryptoPrice();
 }
 
-async function fetchCrypto
+async function fetchCryptoPrice(){
+  const crypto = document.getElementById("cryptoSelect").value;
+  const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`);
+  const data = await res.json();
+  cryptoPrice = data[crypto].usd;
+  document.getElementById("cryptoRate").innerText=cryptoPrice.toLocaleString();
+  updateOutput();
+}
+
+function updateOutput(){
+  const usd = parseFloat(document.getElementById("amountInput").value)||0;
+  const crypto = parseFloat(document.getElementById("cryptoOutput").value)||0;
+  if(isUsdToCrypto){
+    document.getElementById("cryptoOutput").value=(usd/cryptoPrice).toFixed(8);
+  } else {
+    document.getElementById("amountInput").value=(crypto*cryptoPrice).toFixed(4);
+  }
+}
+
+document.getElementById("cryptoSelect").addEventListener("change",updateCryptoDisplay);
+document.getElementById("amountInput").addEventListener("input",()=>{isUsdToCrypto=true;updateOutput();});
+document.getElementById("cryptoOutput").addEventListener("input",()=>{isUsdToCrypto=false;updateOutput();});
+
+fetchCryptoPrice();
+setInterval(fetchCryptoPrice,30000);
+</script>
+
+</body>
+</html>
